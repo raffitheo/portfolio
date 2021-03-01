@@ -1,0 +1,41 @@
+@import '../../../index.scss';
+
+nav {
+    height: 100vh;
+    position: relative;
+    width: 12.5vw;
+
+    h3 {
+        text-align: center;
+        padding-top: 3rem;
+        width: 100%;
+    }
+
+    span {
+        border-bottom: 1px solid transparent;
+        bottom: 5rem;
+        cursor: pointer;
+        font-size: 0.85rem;
+        left: 20%;
+        position: absolute;
+        transform: rotateZ(-90deg);
+        transform-origin: 0 0;
+        transition: font-size 300ms ease-in-out, border-bottom 300ms ease-in-out;
+
+        &::before {
+            background-color: $text-dark-color;
+            content: '';
+            height: 1px;
+            left: -6rem;
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            width: 5rem;
+        }
+
+        &:hover, &.active {
+            border-bottom: 1px solid $text-normal-color;
+            font-size: 0.95rem;
+        }
+    }
+}

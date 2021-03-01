@@ -1,0 +1,44 @@
+@import '../../../index.scss';
+
+div {
+    &.contacts {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.5rem;
+
+        span { font-weight: bold; }
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+            padding-top: 1.5rem;
+
+            li {
+                align-content: center;
+                display: flex;
+                justify-content: center;
+                vertical-align: middle;
+                width: 100%;
+
+                a {
+                    background-color: $text-normal-color;
+                    border-radius: 45px;
+                    color: $background-color;
+                    padding: 10px;
+                    transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+
+                    &:hover {
+                        color: $text-normal-color;
+
+                        &#facebook { background-color: #3B5998; }
+                        &#github { background-color: #C9510C; }
+                        &#instagram { background-color: #C13584; }
+                        &#linkedin { background-color: #0072B1; }
+                        &#twitter { background-color: #1DA1F2; }
+                    }
+                }
+            }
+        }
+    }
+}

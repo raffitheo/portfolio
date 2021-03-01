@@ -1,0 +1,62 @@
+{
+  "name": "raffaelevalenti-portfolio",
+  "author": "Raffaele Valenti <raffaele-valenti@libero.it> (https://raffaele-valenti.netlify.app)",
+  "contributors": [],
+  "bugs": {
+    "url": "https://github.com/raffitheo/portfolio/issues",
+    "email": "raffaele-valenti@libero.it"
+  },
+  "homepage": "https://raffaele-valenti.netlify.app",
+  "version": "5.0.1",
+  "license": "ISC",
+  "keywords": [
+    "developer",
+    "personal",
+    "portfolio",
+    "programmer",
+    "raffaele",
+    "software",
+    "student",
+    "valenti",
+    "website"
+  ],
+  "description": "Hi! I'm Raffaele Valenti and I'm an Italian self-tought programmer / software developer.",
+  "repository": "github:raffitheo/portfolio",
+  "main": "src/index.js",
+  "private": false,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-feather": "^2.0.9",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "web-vitals": "^1.1.0"
+  },
+  "devDependencies": {
+    "sass": "^1.32.8"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
