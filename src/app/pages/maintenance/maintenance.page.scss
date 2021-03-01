@@ -25,7 +25,8 @@ div {
                     background-color: $text-normal-color;
                     border-radius: 45px;
                     color: $background-color;
-                    padding: 10px;
+                    display: flex;
+                    padding: 12px;
                     transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
 
                     &:hover {
