@@ -1,9 +1,18 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "homepage": "http://raffitheo.github.io/portfolio",
+  "homepage": "https://raffitheo.github.io/portfolio/",
+  "license": "MIT",
+  "author": {
+    "email": "raffaele-valenti@tutamail.com",
+    "name": "Raffaele Valenti"
+  },
+  "main": "src/index.tsx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raffitheo/portfolio/"
+  },
   "private": true,
-  "type": "module",
   "scripts": {
     "build": "tsc && vite build",
     "deploy": "gh-pages -d dist",
