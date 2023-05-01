@@ -7,6 +7,12 @@ import frFR from "@loc/fr-fr"
 export type PortfolioLocalizations = {
   landing: {
     description: string
+    social: {
+      email: string
+      github: string
+      linkedin: string
+      resume: string
+    }
     title: string
   }
 }
