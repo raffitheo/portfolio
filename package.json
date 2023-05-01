@@ -1,7 +1,8 @@
 {
   "name": "portfolio",
-  "private": true,
   "version": "1.0.0",
+  "homepage": "http://raffitheo.github.io/portfolio",
+  "private": true,
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
