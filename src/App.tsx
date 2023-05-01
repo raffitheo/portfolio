@@ -99,9 +99,11 @@ const App: React.FC = () => {
         />
         <SlideButton
           backgroundColor="#525a67"
-          href={`/files/Curriculum (${strings
-            .getLanguage()
-            .toUpperCase()}).pdf`}
+          href={`${
+            window.location.href.toLocaleLowerCase().indexOf("portfolio") !== -1
+              ? ""
+              : ""
+          }/files/Curriculum (${strings.getLanguage().toUpperCase()}).pdf`}
           icon="FileText"
           newTab
           text={strings.formatString(strings.landing.social.resume).toString()}
