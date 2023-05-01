@@ -99,7 +99,7 @@ const App: React.FC = () => {
         />
         <SlideButton
           backgroundColor="#525a67"
-          href={`/files/Curriculum (${strings
+          href={`./files/Curriculum (${strings
             .getLanguage()
             .toUpperCase()}).pdf`}
           icon="FileText"
