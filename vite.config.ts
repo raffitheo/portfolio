@@ -1,5 +1,5 @@
 import { Alias, defineConfig } from "vite"
-import path, { resolve } from "path"
+import path from "path"
 import react from "@vitejs/plugin-react"
 
 import * as tsconfig from "./tsconfig.paths.json"
@@ -20,7 +20,7 @@ const readAliasFromTsConfig = (): Alias[] => {
 }
 
 export default defineConfig({
-  base: "/",
+  base: "./",
   css: { modules: { localsConvention: "camelCase" } },
   plugins: [react()],
   resolve: {
