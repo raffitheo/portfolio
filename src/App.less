@@ -5,7 +5,7 @@
   justify-content: center;
 
   .container {
-    max-width: 50vw;
+    max-width: 65vw;
 
     .row {
       /* Add styles for the row here */
@@ -21,11 +21,11 @@
 
       .title {
         color: #ffffff;
-        font-size: 72px;
+        font-size: 100px;
       }
 
       .description-wrapper {
-        font-size: 32px;
+        font-size: 40px;
 
         .description-element {
           display: inline-block;
@@ -39,19 +39,22 @@
             left: 0;
             content: attr(data-replace);
             height: 100%;
+            opacity: 0;
             top: 0;
             transform-origin: 100% 50%;
             transform: translate3d(0, 100%, 0);
-            transition: transform 400ms cubic-bezier(0.76, 0, 0.24, 1);
+            transition: all 400ms cubic-bezier(0.76, 0, 0.24, 1);
             color: #5c636e;
           }
 
           &.darken {
             &::after {
+              opacity: 1;
               transform: translate3d(0, 0, 0);
             }
 
             span {
+              opacity: 0;
               transform: translate3d(0, -100%, 0);
             }
           }
@@ -59,7 +62,8 @@
           span {
             display: inline-block;
             pointer-events: none;
-            transition: transform 400ms cubic-bezier(0.76, 0, 0.24, 1);
+            opacity: 1;
+            transition: all 400ms cubic-bezier(0.76, 0, 0.24, 1);
           }
         }
       }
