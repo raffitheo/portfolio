@@ -2,8 +2,7 @@ import { PortfolioLocalizations } from "@loc/mystrings"
 
 const enUS: PortfolioLocalizations = {
   landing: {
-    description:
-      "I'm a self-taught Italian software developer with a passion for game development",
+    description: "I'm a self-taught Italian software developer with a passion for game development",
     social: {
       email: "Email",
       github: "GitHub",
