@@ -23,11 +23,11 @@
     "editor.suggest.insertMode": "replace"
   },
 
-	"[javascript]": {
-		"editor.rulers": [120]
-	},
+  "[javascript]": {
+    "editor.rulers": [120]
+  },
 
-	"[typescript]": {
-		"editor.rulers": [120]
-	}
+  "[typescript]": {
+    "editor.rulers": [120]
+  }
 }
