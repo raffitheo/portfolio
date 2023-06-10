@@ -5,13 +5,10 @@ import strings from "./loc/mystrings"
 import SlideButton from "@components/SlideButton/SlideButton"
 
 const App: React.FC = () => {
-  const onMouseEnterWord = useCallback(
-    (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-      event.stopPropagation()
-      ;(event.target as HTMLElement).classList.toggle("darken")
-    },
-    []
-  )
+  const onMouseEnterWord = useCallback((event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    event.stopPropagation()
+    ;(event.target as HTMLElement).classList.toggle("darken")
+  }, [])
 
   const descriptionWords = useMemo(() => {
     return (
@@ -23,22 +20,12 @@ const App: React.FC = () => {
           .map((word, index) => {
             return (
               <span key={index}>
-                <span
-                  className="description-element"
-                  data-replace={word}
-                  title={word}
-                  onMouseEnter={onMouseEnterWord}
-                >
+                <span className="description-element" data-replace={word} title={word} onMouseEnter={onMouseEnterWord}>
                   <span>{word}</span>
                 </span>
 
                 <span style={{ pointerEvents: "none" }}>
-                  {index !==
-                  strings
-                    .formatString(strings.landing.description)
-                    .toString()
-                    .split(" ").length -
-                    1
+                  {index !== strings.formatString(strings.landing.description).toString().split(" ").length - 1
                     ? " "
                     : ""}
                 </span>
@@ -54,9 +41,7 @@ const App: React.FC = () => {
       <section className="home">
         <div className="container">
           <div className="row">
-            <h1 className="title">
-              {strings.formatString(strings.landing.title)}
-            </h1>
+            <h1 className="title">{strings.formatString(strings.landing.title)}</h1>
             {descriptionWords}
           </div>
         </div>
@@ -77,9 +62,7 @@ const App: React.FC = () => {
           href="https://www.linkedin.com/in/raffaele-valenti/"
           icon="Linkedin"
           newTab
-          text={strings
-            .formatString(strings.landing.social.linkedin)
-            .toString()}
+          text={strings.formatString(strings.landing.social.linkedin).toString()}
           textColor="#ffffff"
         />
         <SlideButton
@@ -99,9 +82,7 @@ const App: React.FC = () => {
         />
         <SlideButton
           backgroundColor="#525a67"
-          href={`${window.location.href}files/Curriculum (${strings
-            .getLanguage()
-            .toUpperCase()}).pdf`}
+          href={`${window.location.href}files/Curriculum (${strings.getLanguage().toUpperCase()}).pdf`}
           icon="FileText"
           newTab
           text={strings.formatString(strings.landing.social.resume).toString()}
