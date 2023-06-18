@@ -1,6 +1,6 @@
 import React from "react"
 
-import SlideButtonProps from "./SlideButtonProps"
+import SlideButtonProps from "./SlideButtonProps.types"
 
 import "./SlideButton.less"
 import IconExtension from "@components/IconExtension/IconExtension"

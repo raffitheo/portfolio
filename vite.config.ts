@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react"
 
 import * as tsconfig from "./tsconfig.paths.json"
 
-const readAliasFromTsConfig = (): Alias[] => {
+const readAliasFromTsConfig = (): Array<Alias> => {
   const pathReplaceRegex = new RegExp(/\/\*$/, "")
 
   return Object.entries(tsconfig.compilerOptions.paths).reduce((aliases, [fromPaths, toPaths]) => {
@@ -13,7 +13,7 @@ const readAliasFromTsConfig = (): Alias[] => {
     const replacement = path.resolve(__dirname, toPath)
     aliases.push({ find, replacement })
     return aliases
-  }, [] as Alias[])
+  }, [] as Array<Alias>)
 }
 
 export default defineConfig({

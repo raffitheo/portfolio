@@ -17,7 +17,7 @@ export type PortfolioLocalizations = {
   }
 }
 
-const strings: PortfolioLocalizations & LocalizedStringsMethods = new LocalizedStrings({
+const strings = new LocalizedStrings({
   en: enUS,
   fr: frFR,
   it: itIT

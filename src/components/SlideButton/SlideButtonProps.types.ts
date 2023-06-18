@@ -1,10 +1,10 @@
-import { IconName } from "@components/IconExtension/IIconExtensionProps"
+import { IconName } from "@components/IconExtension/IconExtensionProps.types"
 
 type SlideButtonProps = {
   backgroundColor: string
   href: string
   icon: IconName
-  newTab?: boolean
+  newTab?: boolean | undefined
   text: string
   textColor: string
 }
