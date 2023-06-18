@@ -3,7 +3,7 @@ import { PortfolioLocalizations } from "@loc/mystrings"
 const itIT: PortfolioLocalizations = {
   landing: {
     description:
-      "Sono uno sviluppatore di software italiano autodidatta con una passione per lo sviluppo di videogiochi",
+      "Sono uno sviluppatore di software italiano, perlopiù autodidatta, con una passione per lo sviluppo di videogiochi",
     social: {
       email: "Email",
       github: "GitHub",
