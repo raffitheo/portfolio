@@ -5,22 +5,22 @@ import react from "@vitejs/plugin-react"
 import * as tsconfig from "./tsconfig.paths.json"
 
 const readAliasFromTsConfig = (): Array<Alias> => {
-  const pathReplaceRegex = new RegExp(/\/\*$/, "")
+    const pathReplaceRegex = new RegExp(/\/\*$/, "")
 
-  return Object.entries(tsconfig.compilerOptions.paths).reduce((aliases, [fromPaths, toPaths]) => {
-    const find = fromPaths.replace(pathReplaceRegex, "")
-    const toPath = toPaths[0].replace(pathReplaceRegex, "")
-    const replacement = path.resolve(__dirname, toPath)
-    aliases.push({ find, replacement })
-    return aliases
-  }, [] as Array<Alias>)
+    return Object.entries(tsconfig.compilerOptions.paths).reduce((aliases, [fromPaths, toPaths]) => {
+        const find = fromPaths.replace(pathReplaceRegex, "")
+        const toPath = toPaths[0].replace(pathReplaceRegex, "")
+        const replacement = path.resolve(__dirname, toPath)
+        aliases.push({ find, replacement })
+        return aliases
+    }, [] as Array<Alias>)
 }
 
 export default defineConfig({
-  base: "./",
-  css: { modules: { localsConvention: "camelCase" } },
-  plugins: [react()],
-  resolve: {
-    alias: readAliasFromTsConfig()
-  }
+    base: "./",
+    css: { modules: { localsConvention: "camelCase" } },
+    plugins: [react()],
+    resolve: {
+        alias: readAliasFromTsConfig()
+    }
 })
