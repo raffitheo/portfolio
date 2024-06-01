@@ -1,17 +1,17 @@
-import { PortfolioLocalizations } from "@loc/mystrings"
+import { PortfolioLocalizations } from '@loc/mystrings';
 
 const frFR: PortfolioLocalizations = {
     landing: {
         description:
-            "Je suis un développeur de logiciels italien, principalement autodidacte, passionné par le développement de jeuxa",
+            'Je suis un développeur de logiciels italien, principalement autodidacte, passionné par le développement de jeuxa',
         social: {
-            email: "Email",
-            github: "GitHub",
-            linkedin: "Linkedin",
-            resume: "Résumé"
+            email: 'Email',
+            github: 'GitHub',
+            linkedin: 'Linkedin',
+            resume: 'Résumé'
         },
         title: "Hello, je m'appelle Raffaele Valenti"
     }
-}
+};
 
-export default frFR
+export default frFR;
