@@ -25,9 +25,9 @@ jobs:
           path: |
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-      - name: Install Yarn packages
+      - name: Install NPM packages
         run: |
-          yarn install
+          npm install
       - name: Build solution
         run: |
-          yarn build
+          npm build
