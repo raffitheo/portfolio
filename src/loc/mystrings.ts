@@ -1,4 +1,4 @@
-import LocalizedStrings, { LocalizedStringsMethods } from 'react-localization';
+import LocalizedStrings from 'react-localization';
 
 import enUS from '@loc/en-en';
 import itIT from '@loc/it-it';
