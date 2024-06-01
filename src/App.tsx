@@ -81,7 +81,7 @@ const App: React.FC = () => {
                 />
                 <SlideButton
                     backgroundColor="#69b8b0"
-                    href="mailto: raffaele-valenti@tutamail.com"
+                    href="mailto: raffaele-valenti@protonmail.com"
                     icon="Mail"
                     text={strings.formatString(strings.landing.social.email).toString()}
                     textColor="#ffffff"
