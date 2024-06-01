@@ -9,8 +9,6 @@
         max-width: 65vw;
 
         .row {
-            /* Add styles for the row here */
-
             .title,
             .description-wrapper {
                 margin: 0;
@@ -68,6 +66,22 @@
                         transition: opacity 300ms cubic-bezier(0.76, 0, 0.24, 1),
                             transform 400ms cubic-bezier(0.76, 0, 0.24, 1);
                     }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .home {
+        .container {
+            .row {
+                .title {
+                    font-size: 60px;
+                }
+
+                .description-wrapper {
+                    font-size: 24px;
                 }
             }
         }
