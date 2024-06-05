@@ -1,16 +1,26 @@
+import IconExtension, { IconName } from '@components/icon-extension';
 import React from 'react';
 
-import SlideButtonProps from './SlideButtonProps.types';
+import './slide-button.sass';
 
-import './SlideButton.less';
-import IconExtension from '@components/IconExtension/IconExtension';
+export interface SlideButtonProps {
+    backgroundColor: string;
+    href: string;
+    icon: IconName;
+    newTab?: boolean;
+    text: string;
+    textColor: string;
+}
 
 const SlideButton: React.FC<SlideButtonProps> = (props: SlideButtonProps) => {
     return (
         <a
             className="slidebutton-wrapper"
             href={props.href}
-            style={{ backgroundColor: props.backgroundColor, color: props.textColor }}
+            style={{
+                backgroundColor: props.backgroundColor,
+                color: props.textColor,
+            }}
             target={props.newTab ? '_blank' : '_self'}
         >
             <span>{props.text}</span>

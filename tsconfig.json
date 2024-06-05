@@ -24,9 +24,10 @@
     "paths": {
         "@assets/*": ["./assets/*"],
         "@components/*": ["./components/*"],
+        "@config/*": ["./config/*"],
         "@helpers/*": ["./helpers/*"],
         "@interfaces/*": ["./interfaces/*"],
-        "@loc/*": ["./loc/*"],
+        "@localizations": ["./localizations/*"],
         "@pages/*": ["./pages/*"]
     },
   },

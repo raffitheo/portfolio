@@ -1,0 +1,29 @@
+.slidebutton-wrapper
+    align-content: flex-end
+    display: flex
+    flex-direction: row
+    gap: 20px
+    font-size: 24px
+    font-weight: 200
+    padding: 15px 20px
+    text-decoration: none
+    text-transform: uppercase
+    transition: transform 400ms cubic-bezier(0.76, 0, 0.24, 1)
+    transform: translate3d(calc(-100% + 60px), 0, 0)
+    user-select: none
+
+    &:hover
+        transform: translate3d(0, 0, 0)
+
+    span,
+    svg
+        margin: auto 0 auto auto
+
+@media (max-width: 600px)
+    .slidebutton-wrapper
+        padding: 10px 13.3px
+        transform: translate3d(calc(-100% + 47.5px), 0, 0)
+
+        svg
+            height: 20px
+            width: 20px

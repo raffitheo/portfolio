@@ -7,16 +7,17 @@ export default defineConfig({
     plugins: [react()],
     server: {
         host: 'localhost',
-        port: 5173
+        port: 5173,
     },
     resolve: {
         alias: {
             '@assets': path.resolve(__dirname, './src/assets'),
             '@components': path.resolve(__dirname, './src/components'),
+            '@config': path.resolve(__dirname, './src/config'),
             '@helpers': path.resolve(__dirname, './src/helpers'),
             '@interfaces': path.resolve(__dirname, './src/interfaces'),
-            '@loc': path.resolve(__dirname, './src/loc'),
-            '@pages': path.resolve(__dirname, './src/pages')
-        }
-    }
+            '@localizations': path.resolve(__dirname, './src/localizations'),
+            '@pages': path.resolve(__dirname, './src/pages'),
+        },
+    },
 });
