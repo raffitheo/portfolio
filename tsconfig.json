@@ -27,7 +27,7 @@
         "@config/*": ["./config/*"],
         "@helpers/*": ["./helpers/*"],
         "@interfaces/*": ["./interfaces/*"],
-        "@localizations": ["./localizations/*"],
+        "@localizations": ["./localizations"],
         "@pages/*": ["./pages/*"]
     },
   },
