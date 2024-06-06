@@ -1,4 +1,7 @@
 interface GlobalLocalizations {
+    Footer: {
+        CopyRightNotice: string;
+    };
     Landing: {
         Description: string;
         Social: {

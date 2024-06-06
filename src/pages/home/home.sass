@@ -2,11 +2,16 @@
     align-items: center
     display: flex
     flex-direction: column
+    font-family: "Front Page News"
     height: 100dvh
+    letter-spacing: 1px
     justify-content: center
 
     .container
-        max-width: 65dvw
+        max-width: 50%
+
+        @media (max-width: 600px)
+            max-width: 65%
 
         .row
             .title,
@@ -20,9 +25,16 @@
             .title
                 color: #ffffff
                 font-size: 100px
+                margin-bottom: .75rem
+
+                @media (max-width: 600px)
+                    font-size: 60px
 
             .description-wrapper
-                font-size: 40px
+                font-size: 35px
+
+                @media (max-width: 600px)
+                    font-size: 21px
 
                 .description-element
                     display: inline-block
@@ -40,7 +52,7 @@
                         top: 0
                         transform-origin: 100% 50%
                         transform: translate3d(0, 100%, 0)
-                        transition: opacity 300ms cubic-bezier(0.76, 0, 0.24, 1), transform 400ms cubic-bezier(0.76, 0, 0.24, 1)
+                        transition: opacity 300ms cubic-bezier(.76, 0, .24, 1), transform 400ms cubic-bezier(.76, 0, .24, 1)
                         color: #5c636e
 
                     &.darken
@@ -56,14 +68,15 @@
                         display: inline-block
                         pointer-events: none
                         opacity: 1
-                        transition: opacity 300ms cubic-bezier(0.76, 0, 0.24, 1), transform 400ms cubic-bezier(0.76, 0, 0.24, 1)
+                        transition: opacity 300ms cubic-bezier(.76, 0, .24, 1), transform 400ms cubic-bezier(.76, 0, .24, 1)
 
-@media (max-width: 600px)
-    .home
-        .container
-            .row
-                .title
-                    font-size: 60px
+                .space
+                    pointer-events: none
 
-                .description-wrapper
-                    font-size: 24px
+.social-wrapper
+    display: flex
+    flex-direction: column
+    left: 0
+    position: absolute
+    top: 50%
+    transform: translate3d(0, -50%, 0)

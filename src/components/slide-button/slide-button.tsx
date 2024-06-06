@@ -1,5 +1,4 @@
 import IconExtension, { IconName } from '@components/icon-extension';
-import React from 'react';
 
 import './slide-button.sass';
 
@@ -12,7 +11,7 @@ export interface SlideButtonProps {
     textColor: string;
 }
 
-const SlideButton: React.FC<SlideButtonProps> = (props: SlideButtonProps) => {
+const SlideButton = (props: SlideButtonProps) => {
     return (
         <a
             className="slidebutton-wrapper"

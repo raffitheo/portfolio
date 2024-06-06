@@ -1,9 +1,12 @@
 import GlobalLocalizations from '@interfaces/global-localizations';
 
 const enUS: GlobalLocalizations = {
+    Footer: {
+        CopyRightNotice: '© Raffaele Valenti. All right reserved.',
+    },
     Landing: {
         Description:
-            'I am an Italian software developer, primarily self-taught, with a fervent passion for game development',
+            'I am a passionate software developer with a self-taught skillset. By day, I dive into the world of full-stack development, but when the moon rises, I transform into a game creator, weaving digital dreams into reality.',
         Social: {
             Email: 'Email',
             GitHub: 'GitHub',
