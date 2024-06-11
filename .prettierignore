@@ -1,9 +1,7 @@
-.vscode/
 node_modules/
-components.json
-package.json
+READMEdocs/
+
 package-lock.json
-README.md
 
-
-*.json
+*.md
+*.svg
