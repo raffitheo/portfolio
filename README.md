@@ -5,7 +5,7 @@
     The following is my personal static website/portfolio hosted with <a href="https://vercel.com/">Vercel</a>, built to showcase my recent projects. 
     <br/>
     <strong>Site URL » </strong> 
-    <a href="https://raffaele-valenti-portfolio.vercel.app/">https://raffaele-valenti-portfolio.vercel.app/</a>
+    <a href="https://raffaelevalenti.it/">https://raffaelevalenti.it/</a>
   </p>
 </p>
 
@@ -28,7 +28,7 @@
 
 # About the project
 
-[![Site preview](/READMEdocs/social-image.png)](https://raffaele-valenti-portfolio.vercel.app/)
+[![Site preview](/READMEdocs/social-image.png)](https://raffaelevalenti.it/)
 
 ## Technology stack 🛠️
 
