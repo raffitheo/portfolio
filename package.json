@@ -20,7 +20,7 @@
         "clean": "rimraf dist",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
-        "prettier": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,md}\""
+        "format": "prettier --write ."
     },
     "dependencies": {
         "i18n": "^0.15.1",
