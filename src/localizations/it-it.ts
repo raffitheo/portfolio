@@ -15,6 +15,13 @@ const itIT: GlobalLocalizations = {
         },
         Title: 'Ehilà, mi chiamo Raffaele Valenti',
     },
+    SEO: {
+        Description:
+            'Sono uno sviluppatore di software appassionato con un insieme di competenze autodidatte. Di giorno, mi immergo nel mondo dello sviluppo full-stack, ma quando sorge la luna, mi trasformo in un creatore di videogiochi, intrecciando sogni digitali nella realtà.',
+        Keywords:
+            'Raffaele Valenti, Raffaele Valenti portfolio, sviluppatore di software',
+        Title: 'Raffaele Valenti | Sviluppatore di software',
+    },
 };
 
 export default itIT;

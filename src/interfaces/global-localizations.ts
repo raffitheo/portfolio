@@ -12,6 +12,11 @@ interface GlobalLocalizations {
         };
         Title: string;
     };
+    SEO: {
+        Description: string;
+        Keywords: string;
+        Title: string;
+    };
 }
 
 export default GlobalLocalizations;
