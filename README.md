@@ -11,8 +11,8 @@
 
 ![CI/CD](https://vercelbadge.vercel.app/api/raffitheo/portfolio?style=for-the-badge)
 [![GitHub license](https://img.shields.io/github/license/raffitheo/portfolio?style=for-the-badge)](https://github.com/raffitheo/portfolio/blob/master/LICENSE)
-[![Node Version](https://img.shields.io/static/v1?label=Node&message=^20.14.0&color=026e00&style=for-the-badge)](https://nodejs.org)
-[![npm Version](https://img.shields.io/static/v1?label=npm&message=^10.7.0&color=cb0000&style=for-the-badge)](https://nodejs.org)
+[![Node Version](https://img.shields.io/static/v1?label=Node&message=^20.15.0&color=026e00&style=for-the-badge)](https://nodejs.org)
+[![npm Version](https://img.shields.io/static/v1?label=npm&message=^10.8.1&color=cb0000&style=for-the-badge)](https://nodejs.org)
 
 <details>
   <summary>Table of Contents</summary>
