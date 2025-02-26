@@ -6,7 +6,7 @@ const itIT: GlobalLocalizations = {
     },
     Landing: {
         Description:
-            'Sono uno sviluppatore di software appassionato con un insieme di competenze autodidatte. Di giorno, mi immergo nel mondo dello sviluppo full-stack, ma quando sorge la luna, mi trasformo in un creatore di videogiochi, intrecciando sogni digitali nella realtà.',
+            'Sono uno sviluppatore di software autodidatta con competenze full-stack. Durante il giorno mi occupo di progetti web end-to-end, mentre nel mio tempo libero mi dedico alla creazione di videogiochi, cercando di trasformare idee creative in esperienze concrete.',
         Social: {
             Email: 'Email',
             GitHub: 'GitHub',
@@ -17,7 +17,7 @@ const itIT: GlobalLocalizations = {
     },
     SEO: {
         Description:
-            'Sono uno sviluppatore di software appassionato con un insieme di competenze autodidatte. Di giorno, mi immergo nel mondo dello sviluppo full-stack, ma quando sorge la luna, mi trasformo in un creatore di videogiochi, intrecciando sogni digitali nella realtà.',
+            'Sono uno sviluppatore di software autodidatta con competenze full-stack. Durante il giorno mi occupo di progetti web end-to-end, mentre nel mio tempo libero mi dedico alla creazione di videogiochi, cercando di trasformare idee creative in esperienze concrete.',
         Keywords:
             'Raffaele Valenti, Raffaele Valenti portfolio, sviluppatore di software',
         Title: 'Raffaele Valenti | Sviluppatore di software',

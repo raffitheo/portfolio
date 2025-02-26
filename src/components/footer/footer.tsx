@@ -18,7 +18,7 @@ const Footer = () => {
                 </div>
                 <div className="footer-element">
                     <span className="title">Tel.</span>
-                    <span className="description">+393484691962</span>
+                    <span className="description">+39 348 469 1962</span>
                 </div>
             </div>
         </footer>

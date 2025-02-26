@@ -6,7 +6,7 @@ const enUS: GlobalLocalizations = {
     },
     Landing: {
         Description:
-            'I am a passionate software developer with a self-taught skillset. By day, I dive into the world of full-stack development, but when the moon rises, I transform into a game creator, weaving digital dreams into reality.',
+            'I am a self-taught software developer with full-stack skills. During the day, I work on end-to-end web projects, and in my free time, I focus on creating video games, turning creative ideas into tangible experiences.',
         Social: {
             Email: 'Email',
             GitHub: 'GitHub',
@@ -17,7 +17,7 @@ const enUS: GlobalLocalizations = {
     },
     SEO: {
         Description:
-            'I am a passionate software developer with a self-taught skillset. By day, I dive into the world of full-stack development, but when the moon rises, I transform into a game creator, weaving digital dreams into reality.',
+            'I am a self-taught software developer with full-stack skills. During the day, I work on end-to-end web projects, and in my free time, I focus on creating video games, turning creative ideas into tangible experiences.',
         Keywords:
             'Raffaele Valenti, Raffaele Valenti portfolio, software developer',
         Title: 'Raffaele Valenti | Software Developer',

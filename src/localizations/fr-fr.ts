@@ -6,7 +6,7 @@ const frFR: GlobalLocalizations = {
     },
     Landing: {
         Description:
-            'Je suis un développeur de logiciel passionné avec un ensemble de compétences autodidacte. Le jour, je plonge dans le monde du développement full-stack, mais lorsque la lune se lève, je me transforme en créateur de jeux video, tissant des rêves numériques en réalité.',
+            'Je suis un développeur logiciel autodidacte avec des compétences en full-stack. Pendant la journée, je travaille sur des projets web allant de A à Z, et pendant mon temps libre, je me consacre à la création de jeux vidéo, transformant des idées créatives en expériences concrètes.',
         Social: {
             Email: 'Email',
             GitHub: 'GitHub',
@@ -17,7 +17,7 @@ const frFR: GlobalLocalizations = {
     },
     SEO: {
         Description:
-            'Je suis un développeur de logiciel passionné avec un ensemble de compétences autodidacte. Le jour, je plonge dans le monde du développement full-stack, mais lorsque la lune se lève, je me transforme en créateur de jeux video, tissant des rêves numériques en réalité.',
+            'Je suis un développeur logiciel autodidacte avec des compétences en full-stack. Pendant la journée, je travaille sur des projets web allant de A à Z, et pendant mon temps libre, je me consacre à la création de jeux vidéo, transformant des idées créatives en expériences concrètes.',
         Keywords:
             'Raffaele Valenti, Raffaele Valenti portfolio, développeur de logiciel',
         Title: 'Raffaele Valenti | Développeur de logiciel',
