@@ -1,15 +1,17 @@
-import i18n from '@localizations';
-import { StrictMode, lazy } from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
+import App from './app';
 
-const App = lazy(() => import('./app.tsx'));
+import './index.css';
 
-import './index.sass';
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error('Could not find root element to mount to');
+}
 
-i18n.init();
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-    <StrictMode>
-        <App />
-    </StrictMode>,
+const root = ReactDOM.createRoot(rootElement);
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
 );
