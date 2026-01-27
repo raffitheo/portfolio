@@ -11,8 +11,8 @@
 
 ![CI/CD](https://vercelbadge.vercel.app/api/raffitheo/portfolio?style=for-the-badge)
 [![GitHub license](https://img.shields.io/github/license/raffitheo/portfolio?style=for-the-badge)](https://github.com/raffitheo/portfolio/blob/master/LICENSE)
-[![Node Version](https://img.shields.io/static/v1?label=Node&message=^22.15.0&color=026e00&style=for-the-badge)](https://nodejs.org)
-[![npm Version](https://img.shields.io/static/v1?label=npm&message=^11.3.0&color=cb0000&style=for-the-badge)](https://nodejs.org)
+[![Node Version](https://img.shields.io/static/v1?label=Node&message=^24.13.0&color=026e00&style=for-the-badge)](https://nodejs.org)
+[![pnpm Version](https://img.shields.io/static/v1?label=pnpm&message=^10.28.2&color=f69220&style=for-the-badge)](https://pnpm.io)
 
 <details>
   <summary>Table of Contents</summary>
@@ -34,10 +34,8 @@
 
 Dependencies defined in package.json:
 
-[Reactjs](https://reactjs.org/)
-| [Vite](https://vitejs.dev/)
-| [Typescript](https://www.typescriptlang.org/)
+[Astro](https://astro.build/)
+| [Tailwind CSS](https://tailwindcss.com/)
+| [TypeScript](https://www.typescriptlang.org/)
+| [ESLint](https://eslint.org/)
 | [Prettier](https://prettier.io/)
-| [Feather](https://feathericons.com/)
-| [react-localization](https://www.npmjs.com/package/react-localization)
-| [LESS](https://lesscss.org/)

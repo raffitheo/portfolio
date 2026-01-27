@@ -8,11 +8,15 @@
     />
     <meta name="theme-color" content="#23252B" />
 
+    <!-- Favicon links (added from your React version) -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="ícon" type="image/png" sizes="32x32" href="/icon32.png" />
-    <link rel="ícon" type="image/png" sizes="64x64" href="/icon64.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/icon64.png" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta name="generator" content={Astro.generator} />
 
     <title>Raffaele Valenti - Portfolio</title>
     <meta name="author" content="Raffaele Valenti" />
@@ -58,11 +62,18 @@
       content="Professional portfolio for Raffaele Valenti, Software Developer specializing in React, TypeScript, and 3D technologies."
       data-react-helmet="true"
     />
-
-    <link href="/src/index.css" rel="stylesheet" />
   </head>
+
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <slot />
   </body>
 </html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

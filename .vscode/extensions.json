@@ -1,15 +1,16 @@
 {
   "recommendations": [
-    "aron-bond.better-comments", // Better Comments
-    "adpyke.codesnap", // CodeSnap
-    "vivaxy.vscode-conventional-commits", // Conventional Commits
-    "dbaeumer.vscode-eslint", // ESLint
-    "htmlhint.vscode-htmlhint", // HTMLHint
-    "bierner.markdown-preview-github-styles", // Markdown Preview GitHub Styles
-    "sbenp.prettier-vscode", // Prettier
-    "syler.sass-indented", // Sass
-    "meganrogge.template-string-converter", // Template String Converter
-    "chakrounanas.turbo-console-log" // Turbo Console Log
+    "adpyke.codesnap",
+    "aron-bond.better-comments",
+    "astro-build.astro-vscode",
+    "bierner.markdown-preview-github-styles",
+    "chakrounanas.turbo-console-log",
+    "dbaeumer.vscode-eslint",
+    "htmlhint.vscode-htmlhint",
+    "meganrogge.template-string-converter",
+    "sbenp.prettier-vscode",
+    "syler.sass-indented",
+    "vivaxy.vscode-conventional-commits"
   ],
   "unwantedRecommendations": []
 }

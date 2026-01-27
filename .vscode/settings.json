@@ -10,7 +10,7 @@
 
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit",
-    "source.organizeImports": "never",
+    "source.organizeImports": "never"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
@@ -19,7 +19,7 @@
   "editor.tabSize": 2,
 
   "files.readonlyInclude": {
-    "node_modules/**": true,
+    "node_modules/**": true
   },
 
   "javascript.suggest.autoImports": false,
@@ -35,22 +35,22 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
 
   "[css]": {
-    "editor.suggest.insertMode": "replace",
+    "editor.suggest.insertMode": "replace"
   },
 
   "[javascript]": {
-    "editor.rulers": [120],
+    "editor.rulers": [120]
   },
 
   "[javascriptreact]": {
-    "editor.rulers": [120],
+    "editor.rulers": [120]
   },
 
   "[typescript]": {
-    "editor.rulers": [120],
+    "editor.rulers": [120]
   },
 
   "[typescriptreact]": {
-    "editor.rulers": [120],
-  },
+    "editor.rulers": [120]
+  }
 }

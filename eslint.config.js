@@ -1,21 +1,34 @@
-export default [
+import eslint from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginAstro from 'eslint-plugin-astro';
+import eslintPluginImport from 'eslint-plugin-import';
+import globals from 'globals';
+import tsEslint from 'typescript-eslint';
+
+export default tsEslint.config(
+  eslint.configs.recommended,
+  ...tsEslint.configs.recommended,
+  ...eslintPluginAstro.configs['flat/recommended'],
+  ...eslintPluginAstro.configs['flat/jsx-a11y-strict'],
   {
-    root: true,
-    env: { browser: true, es2020: true },
-    extends: [
-      'eslint:recommended',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:react-hooks/recommended',
-      'plugin:prettier/recommended',
-    ],
-    ignorePatterns: ['dist', 'eslint.config.js'],
-    parser: '@typescript-eslint/parser',
-    plugins: ['react-refresh', 'import', 'prettier'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      },
+    },
+  },
+  {
+    files: ['**/*.{js,ts,tsx,astro}'],
+    plugins: {
+      import: eslintPluginImport,
+    },
     rules: {
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'no-undef': 'off',
       'import/order': [
         'error',
         {
@@ -34,7 +47,10 @@ export default [
           },
         },
       ],
-      'prettier/prettier': 'error',
     },
   },
-];
+  {
+    ignores: ['dist/**', 'node_modules/**', '.astro/**'],
+  },
+  eslintConfigPrettier,
+);
