@@ -1,40 +1,39 @@
+import eslint from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginAstro from 'eslint-plugin-astro';
+import eslintPluginImport from 'eslint-plugin-import';
+import globals from 'globals';
+import tsEslint from 'typescript-eslint';
+
 export default [
-    {
-        root: true,
-        env: { browser: true, es2020: true },
-        extends: [
-            'eslint:recommended',
-            'plugin:@typescript-eslint/recommended',
-            'plugin:react-hooks/recommended',
-            'plugin:prettier/recommended',
-        ],
-        ignorePatterns: ['dist', 'eslint.config.js'],
-        parser: '@typescript-eslint/parser',
-        plugins: ['react-refresh', 'import', 'prettier'],
-        rules: {
-            'react-refresh/only-export-components': [
-                'warn',
-                { allowConstantExport: true },
-            ],
-            'import/order': [
-                'error',
-                {
-                    groups: [
-                        'builtin',
-                        'external',
-                        'internal',
-                        'parent',
-                        'sibling',
-                        'index',
-                    ],
-                    'newlines-between': 'always',
-                    alphabetize: {
-                        order: 'asc',
-                        caseInsensitive: true,
-                    },
-                },
-            ],
-            'prettier/prettier': 'error',
-        },
-    },
+	eslint.configs.recommended,
+	...tsEslint.configs.recommended,
+	...eslintPluginAstro.configs['flat/recommended'],
+	...eslintPluginAstro.configs['flat/jsx-a11y-strict'],
+	{
+		languageOptions: {
+			globals: {
+				...globals.browser,
+				...globals.node,
+			},
+			parserOptions: {
+				ecmaVersion: 2020,
+				sourceType: 'module',
+			},
+		},
+	},
+	{
+		files: ['**/*.{js,ts,tsx,astro}'],
+		plugins: {
+			import: eslintPluginImport,
+		},
+		rules: {
+			'no-undef': 'off',
+			'import/order': 'off', // Disable import/order rule due to eslint-plugin-import v2 not supporting ESLint v10
+		},
+	},
+	{
+		ignores: ['dist/**', 'node_modules/**', '.astro/**'],
+	},
+	eslintConfigPrettier,
 ];

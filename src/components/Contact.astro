@@ -1,0 +1,133 @@
+---
+import { getEntry } from 'astro:content';
+import { Mail, MessageSquare, Send, Github, Linkedin } from 'lucide-astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Icon mapping
+const socialIconMap = {
+	Github,
+	Linkedin,
+};
+
+// Get social links from collection for current language
+const socialEntry = await getEntry('social', lang);
+const socialLinks = socialEntry?.data || [];
+const sortedSocialLinks = [...socialLinks].sort(
+	(a, b) => (a.order || 0) - (b.order || 0),
+);
+const filteredSocials = sortedSocialLinks.filter(
+	(l) => l.name !== 'Email' && l.name !== 'Website',
+);
+
+// Get personal data from collection for current language
+const personalEntry = await getEntry('personal', lang);
+const personalData = personalEntry?.data[0] || {
+	name: '',
+	location: '',
+	email: '',
+};
+---
+
+<section id="contact" class="relative overflow-hidden py-20">
+	<div class="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+		<h2 class="mb-6 text-3xl font-bold text-white md:text-5xl">
+			{t('contact.title')}
+		</h2>
+		<div
+			class="bg-accent mx-auto h-1 w-24 rounded-full shadow-[0_0_10px_rgba(152,164,181,0.5)]"
+		>
+		</div>
+		<p class="text-secondary mx-auto mt-4 mb-16 max-w-2xl">
+			{t('contact.subtitle')}
+		</p>
+
+		<div class="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+			<div
+				class="group bg-surface/40 hover:border-accent/30 hover:bg-surface/60 flex flex-col items-center justify-center rounded-2xl border border-white/5 p-6 text-center shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] md:p-8"
+			>
+				<div
+					class="bg-accent/10 text-accent group-hover:bg-accent group-hover:text-background mb-4 rounded-xl p-4 transition-colors duration-300"
+				>
+					<Mail size={32} />
+				</div>
+				<h3
+					class="group-hover:text-accent mb-2 text-xl font-bold text-white transition-colors"
+				>
+					{t('contact.email.title')}
+				</h3>
+				<p
+					class="text-secondary mb-6 text-sm transition-colors group-hover:text-gray-300"
+				>
+					{personalData.email}
+				</p>
+
+				<a
+					href={`mailto:${personalData.email}`}
+					class="group hover:bg-accent hover:text-background text-accent inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-3 transition-all duration-300 hover:scale-105 active:scale-95"
+				>
+					<Send
+						size={16}
+						class="transition-transform duration-300 group-hover:scale-105 group-active:scale-95"
+					/>
+					{t('contact.email.send')}
+				</a>
+			</div>
+
+			<div
+				class="bg-surface/40 hover:border-accent/30 hover:bg-surface/60 group flex flex-col items-center justify-center rounded-2xl border border-white/5 p-6 text-center shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] md:p-8"
+			>
+				<div
+					class="bg-accent/10 text-accent group-hover:bg-accent group-hover:text-background mb-4 rounded-xl p-4 transition-colors duration-300"
+				>
+					<MessageSquare size={32} />
+				</div>
+				<h3
+					class="group-hover:text-accent mb-2 text-xl font-bold text-white transition-colors"
+				>
+					{t('contact.socials.title')}
+				</h3>
+				<p
+					class="text-secondary mb-6 text-sm transition-colors group-hover:text-gray-300"
+				>
+					{t('contact.socials.subtitle')}
+				</p>
+
+				<div class="flex w-full gap-3">
+					{
+						filteredSocials.map((link) => {
+							const IconComponent =
+								socialIconMap[link.icon as keyof typeof socialIconMap];
+
+							return (
+								<a
+									href={link.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="hover:bg-accent hover:text-background text-accent flex flex-1 items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 py-2.5 text-xs font-semibold transition-all duration-300 hover:scale-105 active:scale-95"
+									aria-label={link.name}
+								>
+									{IconComponent && <IconComponent size={16} />}
+									<span>{link.name}</span>
+								</a>
+							);
+						})
+					}
+				</div>
+			</div>
+		</div>
+
+		<div
+			class="inline-block rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm"
+		>
+			<p class="text-secondary text-sm">
+				{t('contact.relocation.based')}
+				<span class="text-accent font-semibold">{personalData.location}</span> • {
+					t('contact.relocation.open')
+				}
+			</p>
+		</div>
+	</div>
+</section>

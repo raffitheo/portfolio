@@ -1,0 +1,38 @@
+[
+  {
+    "id": "radar-1",
+    "subject": "Frontend",
+    "value": 88,
+    "order": 1
+  },
+  {
+    "id": "radar-2",
+    "subject": "Architecture",
+    "value": 82,
+    "order": 2
+  },
+  {
+    "id": "radar-3",
+    "subject": "Backend",
+    "value": 78,
+    "order": 3
+  },
+  {
+    "id": "radar-4",
+    "subject": "Infrastructure",
+    "value": 72,
+    "order": 4
+  },
+  {
+    "id": "radar-5",
+    "subject": "Mobile",
+    "value": 60,
+    "order": 5
+  },
+  {
+    "id": "radar-6",
+    "subject": "Game Dev",
+    "value": 65,
+    "order": 6
+  }
+]

@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://raffaelevalenti.it/sitemap_index.xml

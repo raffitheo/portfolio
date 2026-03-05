@@ -1,0 +1,132 @@
+[
+  {
+    "id": "exp-1",
+    "role": "Lead Full-Stack Developer",
+    "company": "Cybertec S.r.l. (Zucchetti Group)",
+    "location": "Trieste, Italy (Hybrid)",
+    "period": "2025-11 - Present",
+    "type": "Full-time",
+    "description": [
+      "Took over a greenfield frontend with no existing conventions and designed the React architecture from scratch for CyberPlan's next major release. The patterns I established are what the team is building on going forward.",
+      "Work directly with product to turn S&OP domain requirements into concrete API and UI decisions. The domain is complex enough that getting the technical model right matters as much as the implementation.",
+      "Modernizing development workflows across both legacy and greenfield modules, pulling them toward consistent standards without breaking what's already in production."
+    ],
+    "skills": [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "S&OP",
+      "Enterprise Software",
+      "Supply Chain Planning"
+    ],
+    "order": 1
+  },
+  {
+    "id": "exp-2",
+    "role": "Software Developer",
+    "company": "Tecnolife IT Consulting S.r.l.",
+    "location": "Trieste, Italy (Remote)",
+    "period": "2024-11 - 2025-11",
+    "type": "Full-time",
+    "description": [
+      "Built React applications from zero with no existing standards to follow. The component structure I put in place became the template for the team's subsequent projects.",
+      "Introduced Docker across development, QA, and production to fix environment parity issues. QA handoffs stopped being a recurring conversation.",
+      "Mentored a junior developer on React architecture; within a few months they were shipping features independently without hand-holding.",
+      "Picked up Flutter/FlutterFlow for mobile delivery and wrote simple Python scripts for backend automation in areas where the team had gaps."
+    ],
+    "skills": [
+      "React",
+      "Flutter",
+      "FlutterFlow",
+      "Docker",
+      "Python",
+      "Frontend Architecture",
+      "Mentoring"
+    ],
+    "order": 2
+  },
+  {
+    "id": "exp-3",
+    "role": "Digital Transformation Analyst",
+    "company": "FINCANTIERI S.p.A.",
+    "location": "Trieste, Italy (Hybrid)",
+    "period": "2024-03 - 2024-10",
+    "type": "Full-time",
+    "description": [
+      "Coordinated up to 4 developers across around 10 concurrent projects, hitting ~90% UAT pass rate while managing change requests, release pipelines, and direct end-user relationships in parallel.",
+      "Built internal React/Storybook and .NET 6/8 libraries shared across multiple applications. The main payoff was cutting per-project setup time and stopping the team from rebuilding the same components repeatedly."
+    ],
+    "skills": [
+      "React",
+      "Storybook",
+      "Component Libraries",
+      "Developer Experience",
+      "Library Design"
+    ],
+    "order": 3
+  },
+  {
+    "id": "exp-4",
+    "role": "Digital Transformation Analyst (Apprenticeship)",
+    "company": "FINCANTIERI S.p.A.",
+    "location": "Trieste, Italy (Hybrid)",
+    "period": "2021-11 - 2024-03",
+    "type": "Apprenticeship",
+    "description": [
+      "Designed a full-stack architecture (React + .NET 6/8 + Entity Framework) that the team later adopted as the standard template for all SharePoint Online platform work.",
+      "Coordinated a development team of 2–4 developers across multiple concurrent enterprise projects.",
+      "Managed production deployment pipelines, software maintenance, bug fixing, change requests, and direct end-user relationships."
+    ],
+    "skills": [
+      "React",
+      ".NET 6/8",
+      "Entity Framework",
+      "SharePoint",
+      "Team Leadership",
+      "CI/CD"
+    ],
+    "order": 4
+  },
+  {
+    "id": "exp-5",
+    "role": "Digital Transformation Analyst (Internship)",
+    "company": "FINCANTIERI S.p.A.",
+    "location": "Trieste, Italy (Hybrid)",
+    "period": "2021-04 - 2021-10",
+    "type": "Internship",
+    "description": [
+      "Developed business-critical SharePoint Online applications with React, Bootstrap, and jQuery.",
+      "Built an Android AR app in Unity that let field workers view 3D ship assembly plans on their phones, no specialist hardware required."
+    ],
+    "skills": [
+      "React",
+      "Bootstrap",
+      "jQuery",
+      "Unity",
+      "AR Foundation",
+      "Android",
+      "3D Visualization"
+    ],
+    "order": 5
+  },
+  {
+    "id": "exp-6",
+    "role": "Android & Web Developer (Internship)",
+    "company": "CodaQ S.r.l.s.",
+    "location": "On-site, Area Science Park, Trieste, Italy",
+    "period": "2019-01 - 2019-07",
+    "type": "Internship",
+    "description": [
+      "Built an Android app integrated with an existing queue management system. The UI was configurable at runtime so staff could update content without triggering a redeployment.",
+      "Built a cross-platform (Android + iOS) patient flow management app for IRCCS Materno Infantile 'Burlo Garofolo' using Angular and NativeScript."
+    ],
+    "skills": [
+      "Android",
+      "Angular",
+      "NativeScript",
+      "Cross-platform Development",
+      "Healthcare Software"
+    ],
+    "order": 6
+  }
+]

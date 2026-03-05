@@ -1,0 +1,133 @@
+[
+  {
+    "id": "cat-1",
+    "name": "Langages",
+    "skills": [
+      { "name": "TypeScript", "level": 90 },
+      { "name": "JavaScript", "level": 88 },
+      { "name": "C#", "level": 80 },
+      { "name": "Python", "level": 58 },
+      { "name": "Dart", "level": 58 },
+      { "name": "Rust", "level": 50 },
+      { "name": "C/C++", "level": 45 },
+      { "name": "Java", "level": 42 }
+    ],
+    "order": 1
+  },
+  {
+    "id": "cat-2",
+    "name": "Front-end",
+    "skills": [
+      { "name": "React", "level": 90 },
+      { "name": "TailwindCSS", "level": 85 },
+      { "name": "Sass/LESS", "level": 78 },
+      { "name": "Next.js", "level": 78 },
+      { "name": "Storybook", "level": 72 },
+      { "name": "Astro", "level": 70 },
+      { "name": "Tauri", "level": 55 },
+      { "name": "Angular", "level": 50 },
+      { "name": "Ionic", "level": 48 },
+      { "name": "Vue", "level": 42 }
+    ],
+    "order": 2
+  },
+  {
+    "id": "cat-3",
+    "name": "Back-end",
+    "skills": [
+      { "name": "API RESTful", "level": 88 },
+      { "name": "Node.js", "level": 80 },
+      { "name": ".NET 6/8", "level": 80 },
+      { "name": "Entity Framework", "level": 75 },
+      { "name": "Express", "level": 75 },
+      { "name": "Prisma", "level": 72 },
+      { "name": "GraphQL", "level": 68 },
+      { "name": "Bun", "level": 62 },
+      { "name": "Hono", "level": 60 }
+    ],
+    "order": 3
+  },
+  {
+    "id": "cat-4",
+    "name": "Données",
+    "skills": [
+      { "name": "PostgreSQL", "level": 75 },
+      { "name": "Supabase", "level": 72 },
+      { "name": "MongoDB", "level": 65 },
+      { "name": "SQL Server", "level": 62 },
+      { "name": "Redis", "level": 60 },
+      { "name": "Firebase", "level": 52 },
+      { "name": "Appwrite", "level": 50 }
+    ],
+    "order": 4
+  },
+  {
+    "id": "cat-5",
+    "name": "Infrastructure",
+    "skills": [
+      { "name": "Docker", "level": 85 },
+      { "name": "CI/CD", "level": 80 },
+      { "name": "Traefik", "level": 72 },
+      { "name": "GitHub Actions", "level": 72 },
+      { "name": "Azure DevOps", "level": 68 },
+      { "name": "Kubernetes", "level": 65 },
+      { "name": "Terraform", "level": 52 },
+      { "name": "Azure", "level": 45 },
+      { "name": "AWS", "level": 35 },
+      { "name": "Google Cloud", "level": 25 }
+    ],
+    "order": 5
+  },
+  {
+    "id": "cat-6",
+    "name": "Jeux & Systèmes",
+    "skills": [
+      { "name": "Unity", "level": 65 },
+      { "name": "Three.js / WebGL", "level": 58 },
+      { "name": "AR Foundation", "level": 55 },
+      { "name": "Bevy / ECS", "level": 48 },
+      { "name": "wgpu", "level": 42 },
+      { "name": "Unreal Engine", "level": 30 }
+    ],
+    "order": 6
+  },
+  {
+    "id": "cat-7",
+    "name": "3D & Création",
+    "skills": [
+      { "name": "Blender", "level": 68 },
+      { "name": "Substance Painter", "level": 62 },
+      { "name": "Substance Designer", "level": 52 },
+      { "name": "GIMP", "level": 60 },
+      { "name": "Inkscape", "level": 55 }
+    ],
+    "order": 7
+  },
+  {
+    "id": "cat-8",
+    "name": "Temps réel & Collaboration",
+    "skills": [{ "name": "Yjs (CRDT)", "level": 62 }],
+    "order": 8
+  },
+  {
+    "id": "cat-9",
+    "name": "Outils IA",
+    "skills": [
+      { "name": "GitHub Copilot", "level": 80 },
+      { "name": "Claude Code", "level": 78 },
+      { "name": "Cursor", "level": 75 },
+      { "name": "Gemini CLI", "level": 62 }
+    ],
+    "order": 9
+  },
+  {
+    "id": "cat-10",
+    "name": "Mobile",
+    "skills": [
+      { "name": "Flutter / FlutterFlow", "level": 62 },
+      { "name": "React Native", "level": 58 },
+      { "name": "NativeScript", "level": 45 }
+    ],
+    "order": 10
+  }
+]

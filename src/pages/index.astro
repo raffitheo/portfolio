@@ -1,0 +1,232 @@
+---
+import { ArrowUp } from 'lucide-astro';
+import Navbar from '@components/Navbar.astro';
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import Projects from '@components/Projects.astro';
+import Experience from '@components/Experience.astro';
+import Skills from '@components/Skills.astro';
+import Education from '@components/Education.astro';
+import Contact from '@components/Contact.astro';
+import Footer from '@components/Footer.astro';
+---
+
+<Layout>
+	<div
+		class="bg-background text-text selection:bg-accent selection:text-background relative min-h-screen font-sans"
+	>
+		<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+			<div
+				class="bg-accent/5 animate-pulse-slow absolute top-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full blur-[120px]"
+			>
+			</div>
+			<div
+				class="bg-secondary/10 absolute bottom-[-10%] left-[-10%] h-[500px] w-[500px] rounded-full blur-[120px]"
+			>
+			</div>
+		</div>
+
+		<Navbar />
+
+		<main class="relative z-10 w-full overflow-hidden">
+			<Hero />
+			<div class="h-12 md:h-24"></div>
+			<Experience />
+			<div class="h-12"></div>
+			<Projects />
+			<div class="h-12"></div>
+			<Skills />
+			<div class="h-12"></div>
+			<Education />
+			<div class="h-12"></div>
+			<Contact />
+			<div class="h-12"></div>
+		</main>
+
+		<Footer />
+
+		<button
+			id="scroll-to-top"
+			class="bg-accent text-background pointer-events-none fixed right-8 bottom-8 z-50 translate-y-10 cursor-pointer rounded-full p-3 opacity-0 transition-all duration-300 hover:scale-105 hover:bg-white active:scale-95"
+			aria-label="Scroll to top"
+		>
+			<ArrowUp
+				size={24}
+				class="transition-transform duration-300 group-hover:scale-105 group-active:scale-95"
+			/>
+		</button>
+	</div>
+</Layout>
+
+<script>
+	// Active section tracking
+	let activeSection = 'home';
+
+	function updateActiveSection() {
+		const sections = ['home', 'experience', 'skills', 'education', 'contact'];
+		const scrollY = window.scrollY;
+		const windowHeight = window.innerHeight;
+		const documentHeight = document.documentElement.scrollHeight;
+
+		// If near bottom, set to contact
+		if (scrollY + windowHeight >= documentHeight - 50) {
+			activeSection = 'contact';
+			updateNavbarActiveState();
+			return;
+		}
+
+		const scrollFocusPoint = scrollY + windowHeight * 0.3;
+
+		for (const section of sections) {
+			const element = document.getElementById(section);
+			if (element) {
+				const { offsetTop, offsetHeight } = element;
+				if (
+					scrollFocusPoint >= offsetTop &&
+					scrollFocusPoint < offsetTop + offsetHeight
+				) {
+					activeSection = section;
+					updateNavbarActiveState();
+					break;
+				}
+			}
+		}
+	}
+
+	function updateNavbarActiveState() {
+		// Update desktop nav buttons
+		const desktopButtons = document.querySelectorAll(
+			'#desktop-nav button[data-scroll-to]:not([data-type="cta-button"])',
+		);
+		desktopButtons.forEach((button) => {
+			const target = button.getAttribute('data-scroll-to');
+			const activeSpan = button.querySelector('span.animate-fade-in');
+			const labelSpan = button.querySelector('span.relative.z-10');
+
+			if (target === activeSection) {
+				button.classList.add('text-white');
+				button.classList.remove('text-gray-400', 'cursor-pointer');
+
+				// Add active indicator if not present
+				if (!activeSpan && labelSpan) {
+					const indicator = document.createElement('span');
+					indicator.className =
+						'animate-fade-in absolute inset-0 rounded-full border border-white/5 bg-white/10 shadow-inner';
+					button.insertBefore(indicator, labelSpan);
+				}
+			} else {
+				button.classList.remove('text-white');
+				button.classList.add('text-gray-400', 'cursor-pointer');
+
+				// Remove active indicator
+				if (activeSpan) {
+					activeSpan.remove();
+				}
+			}
+		});
+
+		// Update mobile nav buttons
+		const mobileButtons = document.querySelectorAll(
+			'#mobile-menu button[data-scroll-to]:not([data-type="cta-button"])',
+		);
+		mobileButtons.forEach((button) => {
+			const target = button.getAttribute('data-scroll-to');
+			const dot = button.querySelector('span.rounded-full');
+
+			if (target === activeSection) {
+				button.classList.add(
+					'bg-accent/10',
+					'text-accent',
+					'border',
+					'border-accent/20',
+				);
+				button.classList.remove(
+					'text-gray-400',
+					'hover:bg-white/5',
+					'hover:text-white',
+				);
+				if (dot) {
+					dot.classList.add('bg-accent');
+					dot.classList.remove('bg-white/10', 'group-hover:bg-white/30');
+				}
+			} else {
+				button.classList.remove(
+					'bg-accent/10',
+					'text-accent',
+					'border',
+					'border-accent/20',
+				);
+				button.classList.add(
+					'text-gray-400',
+					'hover:bg-white/5',
+					'hover:text-white',
+				);
+				if (dot) {
+					dot.classList.remove('bg-accent');
+					dot.classList.add('bg-white/10', 'group-hover:bg-white/30');
+				}
+			}
+		});
+	}
+
+	// Scroll to top button visibility
+	const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+	function handleScroll() {
+		const scrollY = window.scrollY;
+
+		// Update scroll to top button
+		if (scrollToTopBtn) {
+			if (scrollY > 500) {
+				scrollToTopBtn.classList.remove(
+					'pointer-events-none',
+					'translate-y-10',
+					'opacity-0',
+				);
+				scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+			} else {
+				scrollToTopBtn.classList.add(
+					'pointer-events-none',
+					'translate-y-10',
+					'opacity-0',
+				);
+				scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+			}
+		}
+
+		// Update active section
+		updateActiveSection();
+	}
+
+	// Scroll to top functionality
+	scrollToTopBtn?.addEventListener('click', () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	});
+
+	// Scroll to section for footer nav
+	document
+		.querySelectorAll('footer button[data-scroll-to]')
+		.forEach((button) => {
+			button.addEventListener('click', () => {
+				const target = button.getAttribute('data-scroll-to');
+				if (target) {
+					const element = document.getElementById(target);
+					if (element) {
+						const offset = 80;
+						const elementPosition = element.getBoundingClientRect().top;
+						const offsetPosition =
+							elementPosition + window.pageYOffset - offset;
+						window.scrollTo({
+							top: offsetPosition,
+							behavior: 'smooth',
+						});
+					}
+				}
+			});
+		});
+
+	// Initialize
+	window.addEventListener('scroll', handleScroll);
+	handleScroll();
+	updateActiveSection();
+</script>

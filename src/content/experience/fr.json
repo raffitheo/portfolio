@@ -1,0 +1,132 @@
+[
+  {
+    "id": "exp-1",
+    "role": "Développeur Full-Stack Lead",
+    "company": "Cybertec S.r.l. (Groupe Zucchetti)",
+    "location": "Trieste, Italie (Hybride)",
+    "period": "2025-11 - Présent",
+    "type": "Temps plein",
+    "description": [
+      "Repris un frontend greenfield sans conventions existantes et conçu l'architecture React de zéro pour la prochaine version majeure de CyberPlan. Les patterns mis en place sont devenus la base de travail de l'équipe.",
+      "Collaboration directe avec le produit pour traduire les exigences du domaine S&OP en décisions concrètes d'API et d'interface. Le domaine est suffisamment complexe pour que la modélisation technique soit aussi importante que l'implémentation.",
+      "Modernisation des workflows de développement sur les modules legacy et greenfield, en les faisant converger vers des standards cohérents sans casser ce qui est déjà en production."
+    ],
+    "skills": [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "S&OP",
+      "Logiciels d'entreprise",
+      "Planification de la chaîne logistique"
+    ],
+    "order": 1
+  },
+  {
+    "id": "exp-2",
+    "role": "Développeur Logiciel",
+    "company": "Tecnolife IT Consulting S.r.l.",
+    "location": "Trieste, Italie (Télétravail)",
+    "period": "2024-11 - 2025-11",
+    "type": "Temps plein",
+    "description": [
+      "Développé des applications React de zéro sans standards préexistants. La structure de composants mise en place est devenue le modèle de référence pour les projets suivants de l'équipe.",
+      "Introduit Docker en développement, QA et production pour résoudre les problèmes de parité d'environnement. Les transferts QA ont cessé d'être une conversation récurrente.",
+      "Encadré un développeur junior sur l'architecture React ; en quelques mois, il livrait des fonctionnalités de façon autonome.",
+      "Pris en main Flutter/FlutterFlow pour la livraison mobile et écrit des scripts Python simples pour l'automatisation back-end dans des domaines où l'équipe avait des lacunes."
+    ],
+    "skills": [
+      "React",
+      "Flutter",
+      "FlutterFlow",
+      "Docker",
+      "Python",
+      "Architecture Frontend",
+      "Mentorat"
+    ],
+    "order": 2
+  },
+  {
+    "id": "exp-3",
+    "role": "Analyste Transformation Digitale",
+    "company": "FINCANTIERI S.p.A.",
+    "location": "Trieste, Italie (Hybride)",
+    "period": "2024-03 - 2024-10",
+    "type": "Temps plein",
+    "description": [
+      "Coordonné jusqu'à 4 développeurs sur une dizaine de projets simultanés, avec un taux de passage UAT d'environ 90%, tout en gérant en parallèle les demandes de changement, les pipelines de release et les relations directes avec les utilisateurs finaux.",
+      "Développé des bibliothèques internes React/Storybook et .NET 6/8 partagées entre plusieurs applications. Le principal bénéfice a été de réduire le temps de mise en place par projet et d'éviter à l'équipe de reconstruire les mêmes composants indéfiniment."
+    ],
+    "skills": [
+      "React",
+      "Storybook",
+      "Bibliothèques de composants",
+      "Expérience développeur",
+      "Conception de bibliothèques"
+    ],
+    "order": 3
+  },
+  {
+    "id": "exp-4",
+    "role": "Analyste Transformation Digitale (Alternance)",
+    "company": "FINCANTIERI S.p.A.",
+    "location": "Trieste, Italie (Hybride)",
+    "period": "2021-11 - 2024-03",
+    "type": "Alternance",
+    "description": [
+      "Conçu une architecture full-stack (React + .NET 6/8 + Entity Framework) que l'équipe a ensuite adoptée comme template standard pour tous les projets sur la plateforme SharePoint Online.",
+      "Coordonné une équipe de 2 à 4 développeurs sur plusieurs projets enterprise simultanés.",
+      "Géré les pipelines de déploiement en production, la maintenance logicielle, la correction de bugs, les demandes de changement et les relations directes avec les utilisateurs finaux."
+    ],
+    "skills": [
+      "React",
+      ".NET 6/8",
+      "Entity Framework",
+      "SharePoint",
+      "Leadership technique",
+      "CI/CD"
+    ],
+    "order": 4
+  },
+  {
+    "id": "exp-5",
+    "role": "Analyste Transformation Digitale (Stage)",
+    "company": "FINCANTIERI S.p.A.",
+    "location": "Trieste, Italie (Hybride)",
+    "period": "2021-04 - 2021-10",
+    "type": "Stage",
+    "description": [
+      "Développé des applications SharePoint Online critiques pour l'activité avec React, Bootstrap et jQuery.",
+      "Développé une application Android en réalité augmentée sous Unity permettant aux techniciens terrain de visualiser les plans d'assemblage 3D du navire sur leur téléphone, sans matériel spécialisé."
+    ],
+    "skills": [
+      "React",
+      "Bootstrap",
+      "jQuery",
+      "Unity",
+      "AR Foundation",
+      "Android",
+      "Visualisation 3D"
+    ],
+    "order": 5
+  },
+  {
+    "id": "exp-6",
+    "role": "Développeur Android & Web (Stage)",
+    "company": "CodaQ S.r.l.s.",
+    "location": "Sur site, Area Science Park, Trieste, Italie",
+    "period": "2019-01 - 2019-07",
+    "type": "Stage",
+    "description": [
+      "Développé une application Android intégrée à un système de gestion de file d'attente existant. L'interface était configurable à l'exécution pour que le personnel puisse mettre à jour le contenu sans déclencher un redéploiement.",
+      "Développé une application multiplateforme (Android + iOS) de gestion des flux patients pour l'IRCCS Materno Infantile « Burlo Garofolo » avec Angular et NativeScript."
+    ],
+    "skills": [
+      "Android",
+      "Angular",
+      "NativeScript",
+      "Développement multiplateforme",
+      "Logiciels de santé"
+    ],
+    "order": 6
+  }
+]

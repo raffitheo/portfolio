@@ -1,0 +1,100 @@
+---
+import { getEntry } from 'astro:content';
+import { GraduationCap, Calendar, MapPin } from 'lucide-astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Get education data from collection for current language
+const educationEntry = await getEntry('education', lang);
+const educationData = educationEntry?.data || [];
+const sortedEducation = [...educationData].sort(
+	(a, b) => (a.order || 0) - (b.order || 0),
+);
+---
+
+<section id="education" class="relative py-20">
+	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+		<div class="mb-20 text-center">
+			<h2 class="mb-6 text-3xl font-bold text-white md:text-5xl">
+				{t('education.title')}
+			</h2>
+			<div
+				class="bg-accent mx-auto h-1 w-24 rounded-full shadow-[0_0_10px_rgba(152,164,181,0.5)]"
+			>
+			</div>
+			<p class="text-secondary mx-auto mt-4 max-w-2xl">
+				{t('education.subtitle')}
+			</p>
+		</div>
+
+		<div class="relative">
+			<div
+				class="via-accent/30 absolute top-0 bottom-0 left-6 w-0.5 transform bg-linear-to-b from-transparent to-transparent md:left-1/2 md:-translate-x-1/2"
+			>
+			</div>
+
+			<div class="space-y-16">
+				{
+					sortedEducation.map((edu, index) => {
+						const isEven = index % 2 === 0;
+						return (
+							<div
+								class={`group relative flex w-full flex-col items-center md:flex-row ${isEven ? 'md:flex-row-reverse' : ''}`}
+							>
+								<div
+									class={`hidden w-full flex-1 flex-col justify-center md:flex ${isEven ? 'items-start pl-16' : 'items-end pr-16'}`}
+								>
+									<div class="border-accent/20 bg-accent/5 text-accent inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-sm font-semibold">
+										<Calendar size={14} /> {edu.period}
+									</div>
+								</div>
+
+								<div class="bg-background border-accent absolute left-6 z-10 mt-0 h-4 w-4 -translate-x-1/2 transform rounded-full border-2 shadow-[0_0_15px_rgba(152,164,181,0.8)] transition-transform duration-300 group-hover:scale-150 md:left-1/2">
+									<div class="bg-accent absolute inset-0 animate-ping rounded-full opacity-0 transition-opacity group-hover:opacity-100" />
+								</div>
+
+								<div
+									class={`w-full flex-1 pl-16 md:pl-0 ${isEven ? 'md:pr-16' : 'md:pl-16'}`}
+								>
+									<div class="bg-surface/40 hover:border-accent/30 hover:bg-surface/60 relative rounded-2xl border border-white/5 p-6 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] md:p-8">
+										<div class="mb-4 md:hidden">
+											<div class="border-accent/20 bg-accent/5 text-accent inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-xs font-semibold">
+												<Calendar size={12} /> {edu.period}
+											</div>
+										</div>
+
+										<div class="mb-4 flex flex-col items-start justify-between">
+											<h3 class="group-hover:text-accent text-xl font-bold text-white transition-colors">
+												{edu.degree}
+											</h3>
+											<h4 class="text-lg font-medium text-gray-300">
+												{edu.institution}
+											</h4>
+										</div>
+
+										<div class="text-secondary mb-6 flex items-center gap-4 border-b border-white/5 pb-4 text-sm">
+											<span class="flex items-center gap-1">
+												<MapPin size={14} /> {edu.location}
+											</span>
+											<span class="flex items-center gap-1">
+												<GraduationCap size={14} /> {t('education.degree')}
+											</span>
+										</div>
+
+										{edu.description && (
+											<p class="text-sm leading-relaxed text-gray-300 opacity-90">
+												{edu.description}
+											</p>
+										)}
+									</div>
+								</div>
+							</div>
+						);
+					})
+				}
+			</div>
+		</div>
+	</div>
+</section>

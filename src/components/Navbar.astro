@@ -1,0 +1,388 @@
+---
+import { getEntry } from 'astro:content';
+import { Menu, X, Languages } from 'lucide-astro';
+import logo from '@assets/raffitheo.png';
+import { Image } from 'astro:assets';
+import { getLangFromUrl, getLocalizedPath } from '../i18n/utils';
+import { languages } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+
+// Get navigation items from collection for current language
+const navbarEntry = await getEntry('navbar', lang);
+const navbarItems = navbarEntry?.data || [];
+const sortedNavItems = [...navbarItems].sort(
+  (a, b) => (a.order || 0) - (b.order || 0),
+);
+
+// Get personal data from collection for current language
+const personalEntry = await getEntry('personal', lang);
+const personalData = personalEntry?.data[0] || {
+  name: '',
+  location: '',
+  email: '',
+};
+---
+
+<>
+  <div
+    id="desktop-nav"
+    class="fixed top-0 right-0 left-0 z-50 hidden justify-center pt-8 transition-all duration-500 md:flex"
+  >
+    <nav
+      class="bg-surface/50 flex translate-y-0 scale-100 items-center gap-1 rounded-full border border-white/5 px-2 py-2 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.1)] backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+    >
+      <button
+        data-scroll-to="home"
+        data-type="cta-button"
+        class="group bg-background hover:border-accent/50 relative flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-white/5 transition-colors duration-200 active:scale-95"
+      >
+        <Image
+          src={logo}
+          alt="Logo"
+          class="text-accent relative z-10 font-mono text-sm font-bold transition-transform group-hover:scale-105 group-active:scale-95"
+        />
+        <div
+          class="bg-accent/10 absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100"
+        >
+        </div>
+      </button>
+
+      <div class="mx-2 h-5 w-px bg-white/10"></div>
+
+      <div class="flex items-center">
+        {
+          sortedNavItems.map((item) => (
+            <button
+              data-scroll-to={item.id}
+              class="group relative cursor-pointer rounded-full px-5 py-2 text-xs font-medium tracking-wide text-gray-400 transition-all duration-300 hover:text-white active:scale-95"
+            >
+              <span class="relative z-10">{item.label}</span>
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="mx-2 h-5 w-px bg-white/10"></div>
+
+      <div class="group/lang relative" id="desktop-lang-container">
+        <button
+          id="desktop-lang-button"
+          class="flex cursor-pointer items-center gap-1.5 rounded-full px-3 py-2 text-xs font-medium text-gray-400 transition-colors hover:text-white"
+          aria-label="Change Language"
+        >
+          <Languages size={14} />
+          <span class="uppercase">{lang}</span>
+        </button>
+        <div
+          id="desktop-lang-dropdown"
+          class="bg-surface/90 animate-fade-in absolute top-full right-0 z-[60] mt-2 hidden min-w-[120px] overflow-hidden rounded-xl border border-white/10 shadow-2xl backdrop-blur-xl"
+        >
+          {
+            Object.entries(languages).map(([l, label]) => (
+              <a
+                href={getLocalizedPath('/', l)}
+                class={`block px-4 py-2.5 text-xs transition-colors hover:bg-white/10 ${l === lang ? 'text-accent bg-white/5 font-semibold' : 'text-gray-300'}`}
+              >
+                {label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div
+    class="pointer-events-none fixed inset-x-0 top-4 z-50 flex justify-center px-4 md:hidden"
+  >
+    <div
+      id="mobile-nav"
+      class="bg-surface/95 pointer-events-auto relative w-full max-w-90 rounded-[28px] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+    >
+      <div class="flex h-14 items-center justify-between p-2 pl-3">
+        <button
+          data-scroll-to="home"
+          class="group flex cursor-pointer items-center gap-3 transition-transform active:scale-95"
+        >
+          <div
+            class="bg-background flex h-10 w-10 items-center justify-center rounded-full border border-white/5"
+          >
+            <span class="text-accent font-mono text-sm font-bold"> RV </span>
+          </div>
+          <span
+            id="mobile-name"
+            class="text-sm font-bold text-white opacity-0 transition-opacity duration-300"
+          >
+            {personalData.name}
+          </span>
+        </button>
+
+        <div class="flex items-center gap-1">
+          <div class="group/mobile-lang relative" id="mobile-lang-container">
+            <button
+              id="mobile-lang-button"
+              class="flex h-10 w-10 items-center justify-center rounded-full text-gray-300 transition-all hover:text-white"
+              aria-label="Change Language"
+            >
+              <Languages size={18} />
+            </button>
+            <div
+              id="mobile-lang-dropdown"
+              class="bg-surface absolute top-full right-0 z-60 mt-2 hidden min-w-[120px] overflow-hidden rounded-xl border border-white/10 shadow-2xl"
+            >
+              {
+                Object.entries(languages).map(([l, label]) => (
+                  <a
+                    href={getLocalizedPath('/', l)}
+                    class={`block px-4 py-3 text-xs transition-colors hover:bg-white/10 ${l === lang ? 'text-accent bg-white/5 font-semibold' : 'text-gray-300'}`}
+                  >
+                    {label}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+
+          <button
+            id="mobile-menu-toggle"
+            class="flex h-10 w-10 rotate-0 cursor-pointer items-center justify-center rounded-full text-gray-300 transition-all duration-300 hover:text-white active:scale-90"
+            aria-label="Open Menu"
+          >
+            <Menu size={20} id="menu-icon" />
+            <X size={20} id="close-icon" class="hidden" />
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="mobile-menu"
+        class="flex max-h-0 flex-col gap-1 px-3 pb-0 opacity-0 transition-all duration-500 ease-in-out"
+      >
+        <div class="mt-1 mb-2 h-px w-full bg-white/5"></div>
+
+        {
+          sortedNavItems.map((item) => (
+            <button
+              data-scroll-to={item.id}
+              class="group flex w-full cursor-pointer items-center justify-between rounded-2xl p-3 text-left text-sm font-medium text-gray-400 transition-all hover:bg-white/5 hover:text-white active:scale-[0.98]"
+              style={`transition-delay: 0ms;`}
+            >
+              {item.label}
+              <span class="h-1.5 w-1.5 rounded-full bg-white/10 transition-colors group-hover:bg-white/30" />
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</>
+
+<script>
+  // Desktop scroll effect
+  let scrolled = false;
+  const desktopNav = document.getElementById('desktop-nav');
+  const desktopNavInner = desktopNav?.querySelector('nav');
+
+  function handleScroll() {
+    const isScrolled = window.scrollY > 20;
+
+    if (isScrolled !== scrolled) {
+      scrolled = isScrolled;
+
+      if (desktopNav && desktopNavInner) {
+        if (scrolled) {
+          desktopNav.classList.remove('pt-8');
+          desktopNav.classList.add('pt-4');
+          desktopNavInner.classList.remove(
+            'bg-[#2b2e35]/50',
+            'border-white/5',
+            'shadow-[0_4px_24px_-4px_rgba(0,0,0,0.1)]',
+          );
+          desktopNavInner.classList.add(
+            'bg-[#2b2e35]/80',
+            'border-white/10',
+            'shadow-[0_8px_32px_rgba(0,0,0,0.2)]',
+          );
+        } else {
+          desktopNav.classList.remove('pt-4');
+          desktopNav.classList.add('pt-8');
+          desktopNavInner.classList.add(
+            'bg-[#2b2e35]/50',
+            'border-white/5',
+            'shadow-[0_4px_24px_-4px_rgba(0,0,0,0.1)]',
+          );
+          desktopNavInner.classList.remove(
+            'bg-[#2b2e35]/80',
+            'border-white/10',
+            'shadow-[0_8px_32px_rgba(0,0,0,0.2)]',
+          );
+        }
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll);
+
+  // Mobile menu toggle
+  let isOpen = false;
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileName = document.getElementById('mobile-name');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileMenuButtons = mobileMenu?.querySelectorAll(
+    'button[data-scroll-to]',
+  );
+
+  function toggleMobileMenu(forceState?: boolean) {
+    isOpen = forceState !== undefined ? forceState : !isOpen;
+
+    if (mobileMenu && mobileName && menuToggle && menuIcon && closeIcon) {
+      if (isOpen) {
+        // Open menu
+        mobileMenu.classList.remove('max-h-0', 'opacity-0', 'pb-0');
+        mobileMenu.classList.add('max-h-96', 'opacity-100', 'pb-3');
+        mobileName.classList.remove('opacity-0');
+        mobileName.classList.add('opacity-100', 'delay-100');
+        menuToggle.classList.add('bg-white/10', 'text-white', 'rotate-90');
+        menuToggle.classList.remove('text-gray-300');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        menuToggle.setAttribute('aria-label', 'Close Menu');
+
+        // Add staggered animation
+        mobileMenuButtons?.forEach((btn, index) => {
+          (btn as HTMLElement).style.transitionDelay = `${index * 50}ms`;
+        });
+
+        // Close lang dropdown when opening menu
+        toggleMobileLang(false);
+      } else {
+        // Close menu
+        mobileMenu.classList.add('max-h-0', 'opacity-0', 'pb-0');
+        mobileMenu.classList.remove('max-h-96', 'opacity-100', 'pb-3');
+        mobileName.classList.add('opacity-0');
+        mobileName.classList.remove('opacity-100', 'delay-100');
+        menuToggle.classList.remove('bg-white/10', 'text-white', 'rotate-90');
+        menuToggle.classList.add('text-gray-300');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        menuToggle.setAttribute('aria-label', 'Open Menu');
+
+        // Reset animation delays
+        mobileMenuButtons?.forEach((btn) => {
+          (btn as HTMLElement).style.transitionDelay = '0ms';
+        });
+      }
+    }
+  }
+
+  menuToggle?.addEventListener('click', () => toggleMobileMenu());
+
+  // Language Dropdown Logic
+  const desktopLangContainer = document.getElementById(
+    'desktop-lang-container',
+  );
+  const desktopLangDropdown = document.getElementById('desktop-lang-dropdown');
+  const mobileLangButton = document.getElementById('mobile-lang-button');
+  const mobileLangDropdown = document.getElementById('mobile-lang-dropdown');
+
+  let desktopLangOpen = false;
+  let mobileLangOpen = false;
+  let leaveTimeout: number | undefined;
+
+  function toggleDesktopLang(force?: boolean) {
+    if (leaveTimeout) {
+      clearTimeout(leaveTimeout);
+      leaveTimeout = undefined;
+    }
+
+    desktopLangOpen = force !== undefined ? force : !desktopLangOpen;
+
+    if (desktopLangDropdown) {
+      if (desktopLangOpen) {
+        desktopLangDropdown.classList.remove('hidden');
+      } else {
+        desktopLangDropdown.classList.add('hidden');
+      }
+    }
+  }
+
+  function toggleMobileLang(force?: boolean) {
+    mobileLangOpen = force !== undefined ? force : !mobileLangOpen;
+    if (mobileLangDropdown) {
+      if (mobileLangOpen) {
+        mobileLangDropdown.classList.remove('hidden');
+        // Close main menu when opening lang
+        if (isOpen) toggleMobileMenu(false);
+      } else {
+        mobileLangDropdown.classList.add('hidden');
+      }
+    }
+  }
+
+  // Desktop Hover with delay
+  desktopLangContainer?.addEventListener('mouseenter', () => {
+    toggleDesktopLang(true);
+  });
+
+  desktopLangContainer?.addEventListener('mouseleave', () => {
+    leaveTimeout = window.setTimeout(() => {
+      toggleDesktopLang(false);
+    }, 300); // 300ms delay to cross the gap
+  });
+
+  // Mobile Click
+  mobileLangButton?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMobileLang();
+  });
+
+  // Global click to close
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+
+    if (!desktopLangContainer?.contains(target)) {
+      toggleDesktopLang(false);
+    }
+
+    if (
+      !mobileLangButton?.contains(target) &&
+      !mobileLangDropdown?.contains(target)
+    ) {
+      toggleMobileLang(false);
+    }
+  });
+
+  // Smooth scroll functionality
+  function scrollToSection(id: string) {
+    // Close mobile menu if open
+    if (isOpen) {
+      toggleMobileMenu(false);
+    }
+    // Close lang dropdown if open
+    toggleMobileLang(false);
+
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  }
+
+  // Add click handlers to all scroll buttons
+  document.querySelectorAll('button[data-scroll-to]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-scroll-to');
+      if (target) {
+        scrollToSection(target);
+      }
+    });
+  });
+</script>

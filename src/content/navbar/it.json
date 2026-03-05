@@ -1,0 +1,7 @@
+[
+  { "id": "home", "label": "Home", "order": 1 },
+  { "id": "experience", "label": "Esperienza", "order": 2 },
+  { "id": "skills", "label": "Competenze", "order": 3 },
+  { "id": "education", "label": "Istruzione", "order": 4 },
+  { "id": "contact", "label": "Contatti", "order": 5 }
+]

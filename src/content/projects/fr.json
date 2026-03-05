@@ -1,0 +1,35 @@
+[
+  {
+    "id": "prj-1",
+    "title": "Portfolio Personnel v2",
+    "description": "Refonte complète du portfolio personnel. Le contenu est géré via les collections de contenu d'Astro (pilotées par JSON) pour la génération statique et la localisation.",
+    "image": "/images/projects/portfolio.png",
+    "tags": ["Astro", "TypeScript", "TailwindCSS", "Content Collections"],
+    "github": "https://github.com/raffitheo/portfolio",
+    "order": 1
+  },
+  {
+    "id": "prj-2",
+    "title": "Orchisoftair Website v2",
+    "description": "Réécriture complète du site de production pour l'A.S.D. Gli Orchi Trieste. Migration de React/Vite/Appwrite vers Next.js App Router avec un back-end Supabase, un système de composants shadcn/ui et un pipeline CI/CD automatisé via Vercel.",
+    "image": "/images/projects/orchisoftair.png",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "Sass",
+      "shadcn/ui",
+      "Vercel"
+    ],
+    "github": "https://github.com/raffitheo/orchisoftair-website",
+    "order": 2
+  },
+  {
+    "id": "prj-3",
+    "title": "Moteur de Jeu Maison",
+    "description": "Moteur de jeu avec un cœur en Rust, utilisant wgpu pour l'abstraction GPU et les patterns Bevy ECS pour la conception des systèmes. L'éditeur et l'interface des outils sont développés avec React et Tauri. Projet privé, en cours — pas une démo.",
+    "image": "/images/projects/engine.png",
+    "tags": ["Rust", "wgpu", "ECS", "Tauri", "React"],
+    "order": 3
+  }
+]
