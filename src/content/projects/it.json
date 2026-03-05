@@ -3,7 +3,7 @@
     "id": "prj-1",
     "title": "Portfolio Personale v2",
     "description": "Riprogettazione completa del portfolio personale. I contenuti sono gestiti tramite le content collection di Astro (basate su JSON) per la generazione statica e la localizzazione.",
-    "image": "/images/projects/portfolio.jpg",
+    "image": "/images/projects/portfolio.png",
     "tags": ["Astro", "TypeScript", "TailwindCSS", "Content Collections"],
     "github": "https://github.com/raffitheo/portfolio",
     "order": 1
@@ -12,7 +12,7 @@
     "id": "prj-2",
     "title": "Orchisoftair Website v2",
     "description": "Riscrittura completa del sito in produzione per l'A.S.D. Gli Orchi Trieste. Migrazione da React/Vite/Appwrite a Next.js App Router con back-end Supabase, sistema di componenti shadcn/ui e pipeline CI/CD automatizzata tramite Vercel.",
-    "image": "/images/projects/orchisoftair.jpg",
+    "image": "/images/projects/orchisoftair.png",
     "tags": [
       "Next.js",
       "TypeScript",
@@ -28,7 +28,7 @@
     "id": "prj-3",
     "title": "Game Engine Custom",
     "description": "Game engine con core in Rust, wgpu per l'astrazione GPU e i pattern Bevy ECS per la progettazione dei sistemi. Editor e UI degli strumenti sviluppati con React e Tauri. Progetto privato, in corso — non è una demo.",
-    "image": "/images/projects/engine.jpg",
+    "image": "/images/projects/engine.png",
     "tags": ["Rust", "wgpu", "ECS", "Tauri", "React"],
     "order": 3
   }
