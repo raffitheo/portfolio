@@ -1,0 +1,20 @@
+[
+  {
+    "id": "edu-1",
+    "institution": "Fondazione Istituto Tecnico Superiore \"Alessandro Volta\"",
+    "degree": "Technicien Supérieur pour le Développement et la Gestion de Solutions Informatiques Biomédicales (TIB)",
+    "location": "Trieste, Italie",
+    "period": "2017-09 - 2019-07",
+    "description": "Diplôme technique spécialisé axé sur l'informatique biomédicale, le développement de logiciels et les systèmes informatiques de santé. Formation complète au développement full-stack, à la gestion de bases de données et aux normes de logiciels médicaux. Stage de 6 mois chez CodaQ S.r.l.s. pour le développement d'applications de santé.",
+    "order": 1
+  },
+  {
+    "id": "edu-2",
+    "institution": "Istituto Tecnico Statale \"Grazia Deledda - Max Fabiani\"",
+    "degree": "Baccalauréat Technique en Chimie, Matériaux et Biotechnologie",
+    "location": "Trieste, Italie",
+    "period": "2012-09 - 2017-06",
+    "description": "Enseignement secondaire technique axé sur la chimie, la science des matériaux et la biotechnologie. Solide base en méthodologie scientifique, techniques de laboratoire et pensée analytique complétant la carrière de développement logiciel.",
+    "order": 2
+  }
+]

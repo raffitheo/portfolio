@@ -1,5 +1,11 @@
+---
+import '@styles/global.css';
+import { getLangFromUrl } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta
@@ -7,68 +13,75 @@
 			content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0"
 		/>
 		<meta name="theme-color" content="#23252B" />
-
-		<!-- Favicon links (added from your React version) -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/icon32.png" />
 		<link rel="icon" type="image/png" sizes="64x64" href="/icon64.png" />
 		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-
-		<title>Raffaele Valenti - Portfolio</title>
+		<title>Raffaele Valenti - Lead Full-Stack Developer</title>
 		<meta name="author" content="Raffaele Valenti" />
 		<meta
 			name="title"
-			content="Raffaele Valenti - Portfolio"
+			content="Raffaele Valenti - Lead Full-Stack Developer"
 			data-react-helmet="true"
 		/>
 		<meta
 			name="description"
-			content="Professional portfolio for Raffaele Valenti, Software Developer specializing in React, TypeScript, and 3D technologies."
+			content={lang === 'it'
+				? 'Lead Full-Stack Developer con 5+ anni su sistemi enterprise, consulenza e prodotto. React e TypeScript end-to-end, infrastruttura Docker/Kubernetes, e un game engine in Rust nel tempo libero.'
+				: lang === 'fr'
+					? 'Lead Full-Stack Developer avec 5+ ans sur des systèmes enterprise, consulting et produit. React et TypeScript de bout en bout, infrastructure Docker/Kubernetes, et un moteur de jeu en Rust en parallèle.'
+					: 'Lead Full-Stack Developer with 5+ years across enterprise, consulting, and product. React and TypeScript end to end, Docker/Kubernetes infrastructure, and a game engine in Rust on the side.'}
 			data-react-helmet="true"
 		/>
 		<meta
 			name="keywords"
-			content="Raffaele Valenti, software developer"
+			content="Raffaele Valenti, full-stack developer, React, TypeScript, .NET, Docker, Kubernetes, Rust"
 			data-react-helmet="true"
 		/>
-
-		<meta http-equiv="Content-Language" content="en" data-react-helmet="true" />
-
+		<meta
+			http-equiv="Content-Language"
+			content={lang}
+			data-react-helmet="true"
+		/>
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://raffaelevalenti.it/" />
 		<meta
 			property="og:title"
-			content="Raffaele Valenti - Portfolio"
+			content="Raffaele Valenti - Lead Full-Stack Developer"
 			data-react-helmet="true"
 		/>
 		<meta
 			property="og:description"
-			content="Professional portfolio for Raffaele Valenti, Software Developer specializing in React, TypeScript, and 3D technologies."
+			content={lang === 'it'
+				? 'Lead Full-Stack Developer con 5+ anni su sistemi enterprise, consulenza e prodotto. React e TypeScript end-to-end, infrastruttura Docker/Kubernetes, e un game engine in Rust nel tempo libero.'
+				: lang === 'fr'
+					? 'Lead Full-Stack Developer avec 5+ ans sur des systèmes enterprise, consulting et produit. React et TypeScript de bout en bout, infrastructure Docker/Kubernetes, et un moteur de jeu en Rust en parallèle.'
+					: 'Lead Full-Stack Developer with 5+ years across enterprise, consulting, and product. React and TypeScript end to end, Docker/Kubernetes infrastructure, and a game engine in Rust on the side.'}
 			data-react-helmet="true"
 		/>
-
 		<meta property="twitter:url" content="https://raffaelevalenti.it/" />
 		<meta
 			property="twitter:title"
-			content="Raffaele Valenti - Portfolio"
+			content="Raffaele Valenti - Lead Full-Stack Developer"
 			data-react-helmet="true"
 		/>
 		<meta
 			property="twitter:description"
-			content="Professional portfolio for Raffaele Valenti, Software Developer specializing in React, TypeScript, and 3D technologies."
+			content={lang === 'it'
+				? 'Lead Full-Stack Developer con 5+ anni su sistemi enterprise, consulenza e prodotto. React e TypeScript end-to-end, infrastruttura Docker/Kubernetes, e un game engine in Rust nel tempo libero.'
+				: lang === 'fr'
+					? 'Lead Full-Stack Developer avec 5+ ans sur des systèmes enterprise, consulting et produit. React et TypeScript de bout en bout, infrastructure Docker/Kubernetes, et un moteur de jeu en Rust en parallèle.'
+					: 'Lead Full-Stack Developer with 5+ years across enterprise, consulting, and product. React and TypeScript end to end, Docker/Kubernetes infrastructure, and a game engine in Rust on the side.'}
 			data-react-helmet="true"
 		/>
 	</head>
-
 	<body>
 		<slot />
 	</body>
 </html>
-
 <style>
 	html,
 	body {

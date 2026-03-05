@@ -1,0 +1,206 @@
+---
+import { getEntry } from 'astro:content';
+import { ArrowDown, Download } from 'lucide-astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const cvPath = `/files/Raffaele-Valenti-CV-${lang.toUpperCase()}.pdf`;
+
+// Get personal data from collection for current language
+const personalEntry = await getEntry('personal', lang);
+const personalData = personalEntry?.data[0] || {
+	name: '',
+	location: '',
+	email: '',
+};
+---
+
+<section
+	id="home"
+	class="relative flex min-h-screen flex-col justify-center overflow-hidden pt-20"
+>
+	<div
+		class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(rgba(152,164,181,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(152,164,181,0.03)_1px,transparent_1px)] mask-[radial-gradient(ellipse_80%_80%_at_50%_50%,#000_20%,transparent_100%)] bg-size-[50px_50px]"
+	>
+	</div>
+
+	<div
+		class="z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8"
+	>
+		<div class="order-2 space-y-8 text-left lg:order-1">
+			<div
+				class="border-accent/20 bg-accent/5 text-accent animate-fade-in inline-flex w-fit items-center gap-2 rounded-full border px-3 py-1.5 font-mono text-xs tracking-wider backdrop-blur-sm"
+			>
+				<span class="relative flex h-2 w-2">
+					<span
+						class="bg-accent absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
+					></span>
+					<span class="bg-accent relative inline-flex h-2 w-2 rounded-full"
+					></span>
+				</span>
+				{t('hero.status')}
+			</div>
+
+			<h1
+				class="text-5xl leading-tight font-extrabold tracking-tight text-white md:text-7xl"
+			>
+				{t('hero.greeting')}
+				<br />
+				<span
+					class="to-secondary animate-gradient-x bg-linear-to-r from-white via-gray-200 bg-clip-text text-transparent"
+				>
+					{personalData.name}
+				</span>
+			</h1>
+
+			<p
+				class="text-secondary border-accent/30 max-w-lg border-l-2 pl-6 text-lg leading-relaxed md:text-xl"
+			>
+				<span class="font-semibold text-white">{t('hero.role')}</span>{' '}
+				{t('hero.description')}
+			</p>
+
+			<div class="flex flex-wrap gap-4 pt-4">
+				<button
+					id="explore-btn"
+					class="group bg-accent text-background inline-flex transform cursor-pointer items-center gap-3 rounded-full px-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:bg-white active:scale-95"
+				>
+					<ArrowDown
+						size={20}
+						class="transition-transform duration-300 group-hover:scale-105 group-active:scale-95"
+					/>
+					{t('hero.explore')}
+				</button>
+
+				<a
+					href={cvPath}
+					download
+					class="group hover:bg-accent hover:text-background text-accent inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105 active:scale-95"
+				>
+					<Download
+						size={20}
+						class="transition-transform duration-300 group-hover:scale-105 group-active:scale-95"
+					/>
+					{t('hero.cv')}
+				</a>
+			</div>
+		</div>
+
+		<div
+			class="perspective-1000 relative order-1 hidden h-112.5 w-full items-center justify-center lg:order-2 lg:flex"
+		>
+			<div
+				class="bg-accent/15 animate-pulse-slow absolute h-64 w-64 rounded-full blur-[100px]"
+			>
+			</div>
+
+			<div
+				id="code-window"
+				class="animate-float relative w-full max-w-lg transition-transform duration-100 ease-out"
+			>
+				<div
+					class="bg-surface/40 hover:border-accent/30 relative z-20 flex flex-col overflow-hidden rounded-2xl border border-white/5 p-8 shadow-2xl backdrop-blur-md transition-all duration-500 hover:shadow-[0_0_30px_rgba(152,164,181,0.15)]"
+				>
+					<div
+						class="mb-8 flex items-center justify-between font-mono text-xs text-gray-500"
+					>
+						<div class="flex items-center gap-2">
+							<div class="bg-accent/40 h-1.5 w-1.5 rounded-full"></div>
+							<span class="tracking-widest uppercase opacity-70"
+								>profile.config.ts</span
+							>
+						</div>
+						<div class="opacity-30">TypeScript</div>
+					</div>
+
+					<div class="flex font-mono text-sm leading-relaxed">
+						<div
+							class="mr-8 flex flex-col text-right text-gray-600 opacity-30 select-none"
+						>
+							{Array.from({ length: 9 }).map((_, i) => <span>{i + 1}</span>)}
+						</div>
+
+						<div class="flex-1 overflow-auto text-gray-300">
+							<div>
+								<span class="text-white/50">const</span>
+								<span class="text-white">developer</span> =
+								<span class="text-accent">new</span>
+								<span class="text-white">Developer</span>({'{'}
+							</div>
+							<div class="pl-4">
+								<span class="text-gray-400">name</span>:
+								<span class="text-accent">'</span><span class="text-white"
+									>{personalData.name}</span
+								><span class="text-accent">'</span>,
+							</div>
+							<div class="pl-4">
+								<span class="text-gray-400">role</span>:
+								<span class="text-accent">'</span><span class="text-white"
+									>Lead Full-Stack Developer</span
+								><span class="text-accent">'</span>,
+							</div>
+							<div class="pl-4">
+								<span class="text-gray-400">stack</span>: [
+								<span class="text-white">'React'</span>,
+								<span class="text-white">'TypeScript'</span>,
+								<span class="text-white">'C#/.NET'</span>
+								],
+							</div>
+							<div class="pl-4">
+								<span class="text-gray-400">status</span>:
+								<span class="text-accent">'</span><span class="text-white"
+									>Ready</span
+								><span class="text-accent">'</span>
+							</div>
+							<div>{'}'});</div>
+							<div class="mt-4">
+								<span class="text-white/50">await</span>
+								<span class="text-white">developer</span>.<span
+									class="text-accent">deploy</span
+								>();
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="bg-accent/5 border-accent/10 animate-pulse-slow absolute -right-6 -bottom-6 -z-10 h-32 w-32 rounded-2xl border backdrop-blur-sm"
+				>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	// Parallax effect for code window
+	const codeWindow = document.getElementById('code-window');
+	let offset = { x: 0, y: 0 };
+
+	function handleMouseMove(e: MouseEvent) {
+		const { innerWidth, innerHeight } = window;
+		const x = (e.clientX / innerWidth - 0.5) * 10;
+		const y = (e.clientY / innerHeight - 0.5) * 10;
+		offset = { x, y };
+
+		if (codeWindow) {
+			codeWindow.style.transform = `rotateY(${offset.x}deg) rotateX(${-offset.y}deg)`;
+		}
+	}
+
+	window.addEventListener('mousemove', handleMouseMove);
+
+	// Scroll to experience section
+	const exploreBtn = document.getElementById('explore-btn');
+	exploreBtn?.addEventListener('click', () => {
+		const element = document.getElementById('experience');
+		if (element) {
+			window.scrollTo({
+				top: element.offsetTop - 100,
+				behavior: 'smooth',
+			});
+		}
+	});
+</script>

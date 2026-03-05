@@ -5,7 +5,7 @@ import eslintPluginImport from 'eslint-plugin-import';
 import globals from 'globals';
 import tsEslint from 'typescript-eslint';
 
-export default tsEslint.config(
+export default [
 	eslint.configs.recommended,
 	...tsEslint.configs.recommended,
 	...eslintPluginAstro.configs['flat/recommended'],
@@ -29,28 +29,11 @@ export default tsEslint.config(
 		},
 		rules: {
 			'no-undef': 'off',
-			'import/order': [
-				'error',
-				{
-					groups: [
-						'builtin',
-						'external',
-						'internal',
-						'parent',
-						'sibling',
-						'index',
-					],
-					'newlines-between': 'always',
-					alphabetize: {
-						order: 'asc',
-						caseInsensitive: true,
-					},
-				},
-			],
+			'import/order': 'off', // Disable import/order rule due to eslint-plugin-import v2 not supporting ESLint v10
 		},
 	},
 	{
 		ignores: ['dist/**', 'node_modules/**', '.astro/**'],
 	},
 	eslintConfigPrettier,
-);
+];

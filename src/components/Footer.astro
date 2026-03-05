@@ -1,0 +1,142 @@
+---
+import { getEntry } from 'astro:content';
+import { Github, Linkedin, Mail, Globe } from 'lucide-astro';
+import logo from '@assets/raffitheo.png';
+import { Image } from 'astro:assets';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Icon mapping object
+const iconMap = {
+	Github,
+	Linkedin,
+	Mail,
+	Globe,
+};
+
+// Get navigation items from collection for current language
+const navbarEntry = await getEntry('navbar', lang);
+const navbarItems = navbarEntry?.data || [];
+const sortedNavItems = [...navbarItems].sort(
+	(a, b) => (a.order || 0) - (b.order || 0),
+);
+
+// Get personal data from collection for current language
+const personalEntry = await getEntry('personal', lang);
+const personalData = personalEntry?.data[0] || {
+	name: '',
+	location: '',
+	email: '',
+};
+
+// Get social links from collection for current language
+const socialEntry = await getEntry('social', lang);
+const socialLinks = socialEntry?.data || [];
+const sortedSocialLinks = [...socialLinks].sort(
+	(a, b) => (a.order || 0) - (b.order || 0),
+);
+---
+
+<footer
+	class="bg-surface/30 relative z-10 mt-20 border-t border-white/5 pt-20 pb-10 backdrop-blur-md"
+>
+	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+		<div class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3">
+			<div class="space-y-6">
+				<div class="flex items-center gap-3">
+					<Image
+						src={logo}
+						alt="Logo"
+						class="text-accent border-accent flex h-10 w-10 items-center justify-center rounded-full border-2 font-mono text-xl font-bold"
+					/>
+					<span class="text-xl font-bold tracking-tight text-white">
+						{personalData.name}
+					</span>
+				</div>
+				<p class="text-secondary max-w-xs text-sm leading-relaxed">
+					{t('footer.description')}
+				</p>
+			</div>
+
+			<div class="md:pl-10">
+				<h3 class="mb-6 font-bold text-white">
+					{t('footer.navigation.title')}
+				</h3>
+				<ul class="space-y-3">
+					{
+						sortedNavItems.map((item) => (
+							<li>
+								<button
+									data-scroll-to={item.id}
+									class="text-secondary group flex cursor-pointer items-center gap-2 text-sm transition-colors hover:text-white"
+								>
+									<span class="bg-secondary h-1.5 w-1.5 rounded-full transition-colors group-hover:bg-white" />
+									{item.label}
+								</button>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div>
+				<h3 class="mb-6 font-bold text-white">
+					{t('footer.connect.title')}
+				</h3>
+				<div class="flex flex-wrap gap-4">
+					{
+						sortedSocialLinks
+							.filter((l) => l.name !== 'Website')
+							.map((link) => {
+								const IconComponent =
+									iconMap[link.icon as keyof typeof iconMap];
+
+								return (
+									<a
+										href={link.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="group hover:bg-accent hover:text-background text-accent inline-flex h-10 w-10 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:scale-105 active:scale-95"
+										aria-label={link.name}
+									>
+										{IconComponent && <IconComponent size={18} />}
+									</a>
+								);
+							})
+					}
+				</div>
+				<div class="text-secondary mt-6 text-sm">
+					<p>
+						{t('footer.connect.opportunities')}
+					</p>
+					<a
+						href={`mailto:${personalData.email}`}
+						class="text-accent decoration-accent/50 underline-offset-4 hover:underline"
+					>
+						{personalData.email}
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div
+			class="flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row"
+		>
+			<p class="text-secondary text-sm">
+				© 2023-{new Date().getFullYear()}
+				{personalData.name}. {t('footer.rights')}
+			</p>
+			<div class="flex items-center gap-6">
+				<span
+					class="text-secondary rounded-full border border-white/5 bg-white/5 px-4 py-2 text-xs"
+				>
+					{t('footer.built')}{' '}
+					<span class="text-accent font-semibold">Astro</span> &{' '}
+					<span class="text-accent font-semibold">Tailwind</span>
+				</span>
+			</div>
+		</div>
+	</div>
+</footer>

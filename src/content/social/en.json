@@ -1,0 +1,34 @@
+[
+  {
+    "id": "github",
+    "name": "GitHub",
+    "url": "https://github.com/raffitheo",
+    "icon": "Github",
+    "label": "View Code",
+    "order": 1
+  },
+  {
+    "id": "linkedin",
+    "name": "LinkedIn",
+    "url": "https://www.linkedin.com/in/raffaele-valenti/",
+    "icon": "Linkedin",
+    "label": "Connect",
+    "order": 2
+  },
+  {
+    "id": "email",
+    "name": "Email",
+    "url": "mailto:raffaele-valenti@protonmail.com",
+    "icon": "Mail",
+    "label": "Send Email",
+    "order": 3
+  },
+  {
+    "id": "website",
+    "name": "Website",
+    "url": "https://www.raffaelevalenti.it/",
+    "icon": "Globe",
+    "label": "Visit Site",
+    "order": 4
+  }
+]

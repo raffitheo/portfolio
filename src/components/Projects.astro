@@ -1,0 +1,194 @@
+---
+import { getEntry } from 'astro:content';
+import { Github, ExternalLink } from 'lucide-astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Get projects from content collection for current language
+const projectsEntry = await getEntry('projects', lang);
+const projects = projectsEntry?.data || [];
+const sortedProjects = [...projects].sort(
+	(a, b) => (a.order || 0) - (b.order || 0),
+);
+---
+
+<section id="projects" class="relative py-20">
+	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+		<div class="mb-20 text-center">
+			<h2 class="mb-6 text-3xl font-bold text-white md:text-5xl">
+				{t('projects.title')}
+			</h2>
+			<div
+				class="bg-accent mx-auto h-1 w-24 rounded-full shadow-[0_0_10px_rgba(152,164,181,0.5)]"
+			>
+			</div>
+			<p class="text-secondary mx-auto mt-4 max-w-2xl">
+				{t('projects.subtitle')}
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+			{
+				sortedProjects.map((project) => (
+					<div
+						class="group bg-surface/40 hover:border-accent/30 hover:bg-surface/60 relative flex h-full flex-col rounded-2xl border border-white/5 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]"
+						data-project-card
+					>
+						<div class="relative h-48 overflow-hidden rounded-t-2xl">
+							<div class="bg-surface/50 absolute inset-0 z-10 transition-colors duration-300 group-hover:bg-transparent" />
+							<img
+								src={project.image}
+								alt={project.title}
+								class="h-full w-full transform object-cover grayscale transition-transform duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0 group-active:scale-95"
+							/>
+
+							<div
+								class="absolute top-4 right-4 z-20 flex max-w-[80%] flex-wrap justify-end gap-2"
+								data-tags-container
+							>
+								{project.tags.map((tag: string, index: number) => (
+									<span
+										class={`hover:border-accent/30 rounded-full border border-white/10 bg-black/60 px-3 py-1 text-[10px] text-white backdrop-blur-md transition-all duration-300 ${index >= 2 ? 'hidden' : ''}`}
+										data-tag
+									>
+										{tag}
+									</span>
+								))}
+								{project.tags.length > 2 && (
+									<button
+										class="hover:border-accent/30 cursor-pointer rounded-full border border-white/10 bg-black/60 px-3 py-1 text-[10px] text-white backdrop-blur-md transition-colors"
+										data-toggle-tags
+									>
+										+{project.tags.length - 2}
+									</button>
+								)}
+							</div>
+						</div>
+
+						<div class="flex flex-1 flex-col p-6 md:p-8">
+							<div class="mb-4">
+								<h3 class="group-hover:text-accent mb-2 flex items-center gap-2 text-xl font-bold text-white transition-colors">
+									{project.title}
+								</h3>
+								<div class="relative">
+									<p
+										class="text-secondary line-clamp-3 text-sm leading-relaxed transition-all duration-300"
+										data-description
+									>
+										{project.description}
+									</p>
+									<button
+										class="text-accent mt-2 cursor-pointer text-xs font-semibold hover:underline"
+										data-toggle-description
+										style="display: none;"
+									>
+										{t('project.seeMore')}
+									</button>
+								</div>
+							</div>
+
+							{(project.github || project.demo) && (
+								<div class="mt-auto flex items-center justify-between border-t border-white/5 pt-6">
+									<div class="flex w-full gap-4">
+										{project.github && (
+											<a
+												href={project.github}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="hover:bg-accent hover:text-background text-accent flex flex-1 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 py-2.5 text-xs font-semibold transition-all duration-300 hover:scale-105 active:scale-95"
+											>
+												<Github size={14} /> {t('project.code')}
+											</a>
+										)}
+										{project.demo && (
+											<a
+												href={project.demo}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="bg-accent text-background flex flex-1 items-center justify-center gap-2 rounded-full py-2.5 text-xs font-semibold transition-all duration-300 hover:scale-105 hover:bg-white active:scale-95"
+											>
+												<ExternalLink size={14} /> {t('project.demo')}
+											</a>
+										)}
+									</div>
+								</div>
+							)}
+						</div>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="mt-16 text-center">
+			<a
+				href="https://github.com/raffitheo"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group text-accent hover:bg-accent hover:text-background inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-3 transition-all duration-300 hover:scale-105 active:scale-95"
+			>
+				<Github
+					size={18}
+					class="transition-transform duration-300 group-hover:scale-105 group-active:scale-95"
+				/>
+				<span>{t('project.github')}</span>
+			</a>
+		</div>
+	</div>
+</section>
+
+<script
+	is:inline
+	define:vars={{
+		seeMoreText: t('project.seeMore'),
+		seeLessText: t('project.seeLess'),
+	}}
+>
+	document.querySelectorAll('[data-project-card]').forEach((card) => {
+		// Description Toggle
+		const description = card.querySelector('[data-description]');
+		const toggleDescBtn = card.querySelector('[data-toggle-description]');
+
+		if (description && toggleDescBtn) {
+			// Check if text is actually clamped
+			if (description.scrollHeight > description.clientHeight) {
+				toggleDescBtn.style.display = 'block';
+			}
+
+			toggleDescBtn.addEventListener('click', () => {
+				const isExpanded = description.classList.contains('line-clamp-none');
+				if (isExpanded) {
+					description.classList.remove('line-clamp-none');
+					description.classList.add('line-clamp-3');
+					toggleDescBtn.textContent = seeMoreText;
+				} else {
+					description.classList.remove('line-clamp-3');
+					description.classList.add('line-clamp-none');
+					toggleDescBtn.textContent = seeLessText;
+				}
+			});
+		}
+
+		// Tags Toggle
+		const toggleTagsBtn = card.querySelector('[data-toggle-tags]');
+		const tags = card.querySelectorAll('[data-tag]');
+
+		if (toggleTagsBtn) {
+			toggleTagsBtn.addEventListener('click', () => {
+				const isExpanded = toggleTagsBtn.hasAttribute('data-expanded');
+				if (isExpanded) {
+					tags.forEach((tag, index) => {
+						if (index >= 2) tag.classList.add('hidden');
+					});
+					toggleTagsBtn.textContent = `+${tags.length - 2}`;
+					toggleTagsBtn.removeAttribute('data-expanded');
+				} else {
+					tags.forEach((tag) => tag.classList.remove('hidden'));
+					toggleTagsBtn.textContent = '×'; // Close icon or similar
+					toggleTagsBtn.setAttribute('data-expanded', 'true');
+				}
+			});
+		}
+	});
+</script>

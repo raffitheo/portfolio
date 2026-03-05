@@ -1,0 +1,20 @@
+[
+  {
+    "id": "edu-1",
+    "institution": "Fondazione Istituto Tecnico Superiore \"Alessandro Volta\"",
+    "degree": "Higher Technician for Development and Management of Biomedical IT Solutions (TIB)",
+    "location": "Trieste, Italy",
+    "period": "2017-09 - 2019-07",
+    "description": "Specialized technical diploma focused on biomedical informatics, software development, and healthcare IT systems. Comprehensive training in full-stack development, database management, and medical software standards. Included 6-month internship at CodaQ S.r.l.s. developing healthcare applications.",
+    "order": 1
+  },
+  {
+    "id": "edu-2",
+    "institution": "Istituto Tecnico Statale \"Grazia Deledda - Max Fabiani\"",
+    "degree": "High School Diploma in Chemistry, Materials, and Biotechnology",
+    "location": "Trieste, Italy",
+    "period": "2012-09 - 2017-06",
+    "description": "Technical high school education with focus on chemistry, materials science, and biotechnology. Strong foundation in scientific methodology, laboratory techniques, and analytical thinking that complements software development career.",
+    "order": 2
+  }
+]
