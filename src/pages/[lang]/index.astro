@@ -118,6 +118,7 @@ export function getStaticPaths() {
 			if (target === activeSection) {
 				button.classList.add('text-white');
 				button.classList.remove('text-gray-400', 'cursor-pointer');
+				button.setAttribute('aria-current', 'true');
 
 				// Add active indicator if not present
 				if (!activeSpan && labelSpan) {
@@ -129,6 +130,7 @@ export function getStaticPaths() {
 			} else {
 				button.classList.remove('text-white');
 				button.classList.add('text-gray-400', 'cursor-pointer');
+				button.removeAttribute('aria-current');
 
 				// Remove active indicator
 				if (activeSpan) {
@@ -157,6 +159,7 @@ export function getStaticPaths() {
 					'hover:bg-white/5',
 					'hover:text-white',
 				);
+				button.setAttribute('aria-current', 'true');
 				if (dot) {
 					dot.classList.add('bg-accent');
 					dot.classList.remove('bg-white/10', 'group-hover:bg-white/30');
@@ -173,6 +176,7 @@ export function getStaticPaths() {
 					'hover:bg-white/5',
 					'hover:text-white',
 				);
+				button.removeAttribute('aria-current');
 				if (dot) {
 					dot.classList.remove('bg-accent');
 					dot.classList.add('bg-white/10', 'group-hover:bg-white/30');

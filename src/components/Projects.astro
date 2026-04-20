@@ -15,10 +15,17 @@ const sortedProjects = [...projects].sort(
 );
 ---
 
-<section id="projects" class="relative py-20">
+<section
+	id="projects"
+	aria-labelledby="projects-title"
+	class="relative py-20"
+>
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="mb-20 text-center">
-			<h2 class="mb-6 text-3xl font-bold text-white md:text-5xl">
+			<h2
+				id="projects-title"
+				class="mb-6 text-3xl font-bold text-white md:text-5xl"
+			>
 				{t('projects.title')}
 			</h2>
 			<div
