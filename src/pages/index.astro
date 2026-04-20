@@ -109,7 +109,7 @@ import Footer from '@components/Footer.astro';
 
 			if (target === activeSection) {
 				button.classList.add('text-white');
-				button.classList.remove('text-gray-400', 'cursor-pointer');
+				button.classList.remove('text-secondary', 'cursor-pointer');
 				button.setAttribute('aria-current', 'true');
 
 				// Add active indicator if not present
@@ -121,7 +121,7 @@ import Footer from '@components/Footer.astro';
 				}
 			} else {
 				button.classList.remove('text-white');
-				button.classList.add('text-gray-400', 'cursor-pointer');
+				button.classList.add('text-secondary', 'cursor-pointer');
 				button.removeAttribute('aria-current');
 
 				// Remove active indicator
@@ -147,7 +147,7 @@ import Footer from '@components/Footer.astro';
 					'border-accent/20',
 				);
 				button.classList.remove(
-					'text-gray-400',
+					'text-secondary',
 					'hover:bg-white/5',
 					'hover:text-white',
 				);
@@ -164,7 +164,7 @@ import Footer from '@components/Footer.astro';
 					'border-accent/20',
 				);
 				button.classList.add(
-					'text-gray-400',
+					'text-secondary',
 					'hover:bg-white/5',
 					'hover:text-white',
 				);

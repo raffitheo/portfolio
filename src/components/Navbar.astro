@@ -54,7 +54,7 @@ const personalData = personalEntry?.data[0] || {
 					sortedNavItems.map((item) => (
 						<button
 							data-scroll-to={item.id}
-							class="group relative min-h-11 cursor-pointer rounded-full px-5 py-2.5 text-xs font-medium tracking-wide text-gray-300 transition-all duration-300 hover:text-white active:scale-95"
+							class="group relative min-h-11 cursor-pointer rounded-full px-5 py-2.5 text-xs font-medium tracking-wide text-secondary transition-all duration-300 hover:text-white active:scale-95"
 						>
 							<span class="relative z-10">{item.label}</span>
 						</button>
@@ -174,7 +174,7 @@ const personalData = personalEntry?.data[0] || {
 					sortedNavItems.map((item) => (
 						<button
 							data-scroll-to={item.id}
-							class="group flex w-full cursor-pointer items-center justify-between rounded-2xl p-3 text-left text-sm font-medium text-gray-400 transition-all hover:bg-white/5 hover:text-white active:scale-[0.98]"
+							class="group flex w-full cursor-pointer items-center justify-between rounded-2xl p-3 text-left text-sm font-medium text-secondary transition-all hover:bg-white/5 hover:text-white active:scale-[0.98]"
 							style={`transition-delay: 0ms;`}
 						>
 							{item.label}

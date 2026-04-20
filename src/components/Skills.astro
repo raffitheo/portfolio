@@ -74,6 +74,20 @@ const chartData = sortedRadarData.map((item) => ({
 						data={chartData}
 						label={t('skills.proficiency.title')}
 					/>
+					<noscript>
+						<ul class="text-secondary mx-auto mt-4 max-w-xs space-y-2 text-left text-sm">
+							{
+								chartData.map((item) => (
+									<li class="flex items-center justify-between gap-4">
+										<span class="text-gray-300">{item.subject}</span>
+										<span class="text-accent font-mono font-semibold">
+											{item.A}%
+										</span>
+									</li>
+								))
+							}
+						</ul>
+					</noscript>
 				</div>
 
 				<div class="mt-4 flex flex-wrap justify-center gap-6">
