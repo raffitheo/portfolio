@@ -25,26 +25,40 @@ export default function SkillRadarChart({
 	label = 'Proficiency',
 }: Props) {
 	const [mounted, setMounted] = useState(false);
+	const [isSmall, setIsSmall] = useState(false);
 
 	useEffect(() => {
-		const timer = setTimeout(() => {
-			setMounted(true);
-		}, 100);
-		return () => clearTimeout(timer);
+		const timer = setTimeout(() => setMounted(true), 100);
+		const mq = window.matchMedia('(max-width: 640px)');
+		const sync = () => setIsSmall(mq.matches);
+		sync();
+		mq.addEventListener('change', sync);
+		return () => {
+			clearTimeout(timer);
+			mq.removeEventListener('change', sync);
+		};
 	}, []);
 
 	if (!mounted) {
-		return <div className="h-72 w-full md:h-80" />;
+		return <div className="h-72 w-full md:h-80" aria-label={label} role="img" />;
 	}
 
 	return (
-		<div className="h-full min-h-[300px] w-full md:min-h-[350px]">
+		<div
+			className="h-full min-h-[300px] w-full md:min-h-[350px]"
+			aria-label={label}
+			role="img"
+		>
 			<ResponsiveContainer width="100%" height={350}>
 				<RadarChart cx="50%" cy="50%" outerRadius="70%" data={data}>
 					<PolarGrid stroke="#5c636e" strokeOpacity={0.2} />
 					<PolarAngleAxis
 						dataKey="subject"
-						tick={{ fill: '#98a4b5', fontSize: 12, fontWeight: 500 }}
+						tick={{
+							fill: '#a3acba',
+							fontSize: isSmall ? 10 : 12,
+							fontWeight: 500,
+						}}
 					/>
 					<PolarRadiusAxis
 						angle={30}
@@ -59,6 +73,10 @@ export default function SkillRadarChart({
 						strokeWidth={2}
 						fill="#98a4b5"
 						fillOpacity={0.3}
+						isAnimationActive={
+							typeof window !== 'undefined' &&
+							!window.matchMedia('(prefers-reduced-motion: reduce)').matches
+						}
 					/>
 					<Tooltip
 						contentStyle={{

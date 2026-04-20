@@ -15,9 +15,12 @@ import Footer from '@components/Footer.astro';
 	<div
 		class="bg-background text-text selection:bg-accent selection:text-background relative min-h-screen font-sans"
 	>
-		<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+		<div
+			aria-hidden="true"
+			class="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+		>
 			<div
-				class="bg-accent/5 animate-pulse-slow absolute top-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full blur-[120px]"
+				class="bg-accent/5 absolute top-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full blur-[120px]"
 			>
 			</div>
 			<div
@@ -47,7 +50,7 @@ import Footer from '@components/Footer.astro';
 
 		<button
 			id="scroll-to-top"
-			class="bg-accent text-background pointer-events-none fixed right-8 bottom-8 z-50 translate-y-10 cursor-pointer rounded-full p-3 opacity-0 transition-all duration-300 hover:scale-105 hover:bg-white active:scale-95"
+			class="group bg-accent text-background pointer-events-none fixed right-8 bottom-8 z-50 translate-y-10 cursor-pointer rounded-full p-3 opacity-0 transition-all duration-300 hover:scale-105 hover:bg-white active:scale-95"
 			aria-label="Scroll to top"
 		>
 			<ArrowUp
@@ -225,8 +228,21 @@ import Footer from '@components/Footer.astro';
 			});
 		});
 
-	// Initialize
-	window.addEventListener('scroll', handleScroll);
+	// Initialize — throttle scroll via rAF
+	let ticking = false;
+	window.addEventListener(
+		'scroll',
+		() => {
+			if (!ticking) {
+				ticking = true;
+				requestAnimationFrame(() => {
+					handleScroll();
+					ticking = false;
+				});
+			}
+		},
+		{ passive: true },
+	);
 	handleScroll();
 	updateActiveSection();
 </script>
