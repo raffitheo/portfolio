@@ -41,6 +41,10 @@ const sortedProjects = [...projects].sort(
 							<img
 								src={project.image}
 								alt={project.title}
+								width="640"
+								height="360"
+								loading="lazy"
+								decoding="async"
 								class="h-full w-full transform object-cover grayscale transition-transform duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0 group-active:scale-95"
 							/>
 

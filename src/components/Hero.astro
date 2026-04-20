@@ -103,7 +103,7 @@ const personalData = personalEntry?.data[0] || {
 					class="bg-surface/40 hover:border-accent/30 relative z-20 flex flex-col overflow-hidden rounded-2xl border border-white/5 p-8 shadow-2xl backdrop-blur-md transition-all duration-500 hover:shadow-[0_0_30px_rgba(152,164,181,0.15)]"
 				>
 					<div
-						class="mb-8 flex items-center justify-between font-mono text-xs text-gray-500"
+						class="mb-8 flex items-center justify-between font-mono text-xs text-gray-400"
 					>
 						<div class="flex items-center gap-2">
 							<div class="bg-accent/40 h-1.5 w-1.5 rounded-full"></div>
@@ -176,20 +176,33 @@ const personalData = personalEntry?.data[0] || {
 <script>
 	// Parallax effect for code window
 	const codeWindow = document.getElementById('code-window');
+	const reducedMotion = window.matchMedia(
+		'(prefers-reduced-motion: reduce)',
+	).matches;
 	let offset = { x: 0, y: 0 };
+	let rafId: number | null = null;
 
-	function handleMouseMove(e: MouseEvent) {
-		const { innerWidth, innerHeight } = window;
-		const x = (e.clientX / innerWidth - 0.5) * 10;
-		const y = (e.clientY / innerHeight - 0.5) * 10;
-		offset = { x, y };
-
+	function applyTransform() {
+		rafId = null;
 		if (codeWindow) {
 			codeWindow.style.transform = `rotateY(${offset.x}deg) rotateX(${-offset.y}deg)`;
 		}
 	}
 
-	window.addEventListener('mousemove', handleMouseMove);
+	function handleMouseMove(e: MouseEvent) {
+		const { innerWidth, innerHeight } = window;
+		offset = {
+			x: (e.clientX / innerWidth - 0.5) * 10,
+			y: (e.clientY / innerHeight - 0.5) * 10,
+		};
+		if (rafId === null) {
+			rafId = requestAnimationFrame(applyTransform);
+		}
+	}
+
+	if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
+		window.addEventListener('mousemove', handleMouseMove, { passive: true });
+	}
 
 	// Scroll to experience section
 	const exploreBtn = document.getElementById('explore-btn');
