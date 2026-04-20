@@ -1,82 +1,79 @@
 ---
 import '@styles/global.css';
-import { getLangFromUrl } from '../i18n/utils';
+import { getLangFromUrl, getLocalizedPath } from '../i18n/utils';
+import { languages } from '../i18n/ui';
+
 const lang = getLangFromUrl(Astro.url);
+
+const SITE_URL = 'https://raffaelevalenti.it';
+const TITLE = 'Raffaele Valenti - Lead Full-Stack Developer';
+
+const descriptions = {
+	en: 'Lead Full-Stack Developer with 5+ years across enterprise, consulting, and product. React and TypeScript end to end, Docker/Kubernetes infrastructure, and a game engine in Rust on the side.',
+	it: 'Lead Full-Stack Developer con 5+ anni su sistemi enterprise, consulenza e prodotto. React e TypeScript end-to-end, infrastruttura Docker/Kubernetes, e un game engine in Rust nel tempo libero.',
+	fr: 'Lead Full-Stack Developer avec 5+ ans sur des systèmes enterprise, consulting et produit. React et TypeScript de bout en bout, infrastructure Docker/Kubernetes, et un moteur de jeu en Rust en parallèle.',
+} as const;
+
+const description = descriptions[lang as keyof typeof descriptions] ?? descriptions.en;
+const canonical = new URL(getLocalizedPath('/', lang), SITE_URL).toString();
+const ogImage = new URL('/apple-touch-icon.png', SITE_URL).toString();
 ---
 
 <!doctype html>
 <html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0"
-		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="theme-color" content="#23252B" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/icon32.png" />
-		<link rel="icon" type="image/png" sizes="64x64" href="/icon64.png" />
-		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<meta name="color-scheme" content="dark" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Raffaele Valenti - Lead Full-Stack Developer</title>
+		<title>{TITLE}</title>
 		<meta name="author" content="Raffaele Valenti" />
-		<meta
-			name="title"
-			content="Raffaele Valenti - Lead Full-Stack Developer"
-			data-react-helmet="true"
+		<meta name="description" content={description} />
+
+		<link rel="canonical" href={canonical} />
+		{
+			Object.keys(languages).map((l) => (
+				<link
+					rel="alternate"
+					hreflang={l}
+					href={new URL(getLocalizedPath('/', l), SITE_URL).toString()}
+				/>
+			))
+		}
+		<link
+			rel="alternate"
+			hreflang="x-default"
+			href={new URL('/', SITE_URL).toString()}
 		/>
-		<meta
-			name="description"
-			content={lang === 'it'
-				? 'Lead Full-Stack Developer con 5+ anni su sistemi enterprise, consulenza e prodotto. React e TypeScript end-to-end, infrastruttura Docker/Kubernetes, e un game engine in Rust nel tempo libero.'
-				: lang === 'fr'
-					? 'Lead Full-Stack Developer avec 5+ ans sur des systèmes enterprise, consulting et produit. React et TypeScript de bout en bout, infrastructure Docker/Kubernetes, et un moteur de jeu en Rust en parallèle.'
-					: 'Lead Full-Stack Developer with 5+ years across enterprise, consulting, and product. React and TypeScript end to end, Docker/Kubernetes infrastructure, and a game engine in Rust on the side.'}
-			data-react-helmet="true"
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
 		/>
-		<meta
-			name="keywords"
-			content="Raffaele Valenti, full-stack developer, React, TypeScript, .NET, Docker, Kubernetes, Rust"
-			data-react-helmet="true"
-		/>
-		<meta
-			http-equiv="Content-Language"
-			content={lang}
-			data-react-helmet="true"
-		/>
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/icon16.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/icon32.png" />
+		<link rel="icon" type="image/png" sizes="152x152" href="/icon152.png" />
+		<link rel="icon" type="image/png" sizes="196x196" href="/icon196.png" />
+		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://raffaelevalenti.it/" />
-		<meta
-			property="og:title"
-			content="Raffaele Valenti - Lead Full-Stack Developer"
-			data-react-helmet="true"
-		/>
-		<meta
-			property="og:description"
-			content={lang === 'it'
-				? 'Lead Full-Stack Developer con 5+ anni su sistemi enterprise, consulenza e prodotto. React e TypeScript end-to-end, infrastruttura Docker/Kubernetes, e un game engine in Rust nel tempo libero.'
-				: lang === 'fr'
-					? 'Lead Full-Stack Developer avec 5+ ans sur des systèmes enterprise, consulting et produit. React et TypeScript de bout en bout, infrastructure Docker/Kubernetes, et un moteur de jeu en Rust en parallèle.'
-					: 'Lead Full-Stack Developer with 5+ years across enterprise, consulting, and product. React and TypeScript end to end, Docker/Kubernetes infrastructure, and a game engine in Rust on the side.'}
-			data-react-helmet="true"
-		/>
-		<meta property="twitter:url" content="https://raffaelevalenti.it/" />
-		<meta
-			property="twitter:title"
-			content="Raffaele Valenti - Lead Full-Stack Developer"
-			data-react-helmet="true"
-		/>
-		<meta
-			property="twitter:description"
-			content={lang === 'it'
-				? 'Lead Full-Stack Developer con 5+ anni su sistemi enterprise, consulenza e prodotto. React e TypeScript end-to-end, infrastruttura Docker/Kubernetes, e un game engine in Rust nel tempo libero.'
-				: lang === 'fr'
-					? 'Lead Full-Stack Developer avec 5+ ans sur des systèmes enterprise, consulting et produit. React et TypeScript de bout en bout, infrastructure Docker/Kubernetes, et un moteur de jeu en Rust en parallèle.'
-					: 'Lead Full-Stack Developer with 5+ years across enterprise, consulting, and product. React and TypeScript end to end, Docker/Kubernetes infrastructure, and a game engine in Rust on the side.'}
-			data-react-helmet="true"
-		/>
+		<meta property="og:site_name" content="Raffaele Valenti" />
+		<meta property="og:locale" content={lang === 'it' ? 'it_IT' : lang === 'fr' ? 'fr_FR' : 'en_US'} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:title" content={TITLE} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:url" content={canonical} />
+		<meta name="twitter:title" content={TITLE} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
 	</head>
 	<body>
 		<slot />

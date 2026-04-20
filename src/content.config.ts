@@ -1,5 +1,6 @@
 import { glob } from 'astro/loaders';
-import { defineCollection, z } from 'astro:content';
+import { z } from 'astro/zod';
+import { defineCollection } from 'astro:content';
 
 const educationCollection = defineCollection({
 	loader: glob({
@@ -64,18 +65,19 @@ const personalData = defineCollection({
 
 const projectsCollection = defineCollection({
 	loader: glob({ pattern: '**/[a-z][a-z].json', base: 'src/content/projects' }),
-	schema: z.array(
-		z.object({
-			id: z.string(),
-			title: z.string(),
-			description: z.string(),
-			image: z.string(),
-			tags: z.array(z.string()),
-			github: z.string().url().optional(),
-			demo: z.string().url().optional(),
-			order: z.number().optional(),
-		}),
-	),
+	schema: ({ image }) =>
+		z.array(
+			z.object({
+				id: z.string(),
+				title: z.string(),
+				description: z.string(),
+				image: image(),
+				tags: z.array(z.string()),
+				github: z.url().optional(),
+				demo: z.url().optional(),
+				order: z.number().optional(),
+			}),
+		),
 });
 
 const skillCategoriesCollection = defineCollection({
@@ -119,7 +121,7 @@ const socialCollection = defineCollection({
 		z.object({
 			id: z.string(),
 			name: z.string(),
-			url: z.string().url(),
+			url: z.url(),
 			icon: z.string(),
 			label: z.string(),
 			order: z.number().optional(),

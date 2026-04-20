@@ -2,26 +2,23 @@
 import { getEntry } from 'astro:content';
 import SkillRadarChart from './SkillRadarChart';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import { Radar } from 'lucide-astro';
+import { Radar } from '@lucide/astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Get skills data from collections for current language
 const skillCategoriesEntry = await getEntry('skillCategories', lang);
 const skillCategories = skillCategoriesEntry?.data || [];
 const sortedCategories = [...skillCategories].sort(
 	(a, b) => (a.order || 0) - (b.order || 0),
 );
 
-// Get the radar data from collections for current language
 const radarDataEntry = await getEntry('skillRadar', lang);
 const radarData = radarDataEntry?.data || [];
 const sortedRadarData = [...radarData].sort(
 	(a, b) => (a.order || 0) - (b.order || 0),
 );
 
-// Transform radar data for the chart
 const chartData = sortedRadarData.map((item) => ({
 	subject: item.subject,
 	A: item.value,
@@ -29,10 +26,17 @@ const chartData = sortedRadarData.map((item) => ({
 }));
 ---
 
-<section id="skills" class="relative py-20">
+<section
+	id="skills"
+	aria-labelledby="skills-title"
+	class="relative py-20"
+>
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="mb-20 text-center">
-			<h2 class="mb-6 text-3xl font-bold text-white md:text-5xl">
+			<h2
+				id="skills-title"
+				class="mb-6 text-3xl font-bold text-white md:text-5xl"
+			>
 				{t('skills.title')}
 			</h2>
 			<div
@@ -70,6 +74,20 @@ const chartData = sortedRadarData.map((item) => ({
 						data={chartData}
 						label={t('skills.proficiency.title')}
 					/>
+					<noscript>
+						<ul class="text-secondary mx-auto mt-4 max-w-xs space-y-2 text-left text-sm">
+							{
+								chartData.map((item) => (
+									<li class="flex items-center justify-between gap-4">
+										<span class="text-gray-300">{item.subject}</span>
+										<span class="text-accent font-mono font-semibold">
+											{item.A}%
+										</span>
+									</li>
+								))
+							}
+						</ul>
+					</noscript>
 				</div>
 
 				<div class="mt-4 flex flex-wrap justify-center gap-6">

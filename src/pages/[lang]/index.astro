@@ -1,5 +1,5 @@
 ---
-import { ArrowUp } from 'lucide-astro';
+import { ArrowUp } from '@lucide/astro';
 import Navbar from '@components/Navbar.astro';
 import Layout from '@layouts/Layout.astro';
 import Hero from '@components/Hero.astro';
@@ -20,12 +20,16 @@ export function getStaticPaths() {
 ---
 
 <Layout>
+	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<div
 		class="bg-background text-text selection:bg-accent selection:text-background relative min-h-screen font-sans"
 	>
-		<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+		<div
+			aria-hidden="true"
+			class="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+		>
 			<div
-				class="bg-accent/5 animate-pulse-slow absolute top-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full blur-[120px]"
+				class="bg-accent/5 absolute top-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full blur-[120px]"
 			>
 			</div>
 			<div
@@ -36,7 +40,7 @@ export function getStaticPaths() {
 
 		<Navbar />
 
-		<main class="relative z-10 w-full overflow-hidden">
+		<main id="main-content" class="relative z-10 w-full overflow-hidden">
 			<Hero />
 			<div class="h-12 md:h-24"></div>
 			<Experience />
@@ -55,7 +59,7 @@ export function getStaticPaths() {
 
 		<button
 			id="scroll-to-top"
-			class="bg-accent text-background pointer-events-none fixed right-8 bottom-8 z-50 translate-y-10 cursor-pointer rounded-full p-3 opacity-0 transition-all duration-300 hover:scale-105 hover:bg-white active:scale-95"
+			class="group bg-accent text-background pointer-events-none fixed right-8 bottom-8 z-50 translate-y-10 cursor-pointer rounded-full p-3 opacity-0 transition-all duration-300 hover:scale-105 hover:bg-white active:scale-95"
 			aria-label="Scroll to top"
 		>
 			<ArrowUp
@@ -113,7 +117,8 @@ export function getStaticPaths() {
 
 			if (target === activeSection) {
 				button.classList.add('text-white');
-				button.classList.remove('text-gray-400', 'cursor-pointer');
+				button.classList.remove('text-secondary', 'cursor-pointer');
+				button.setAttribute('aria-current', 'true');
 
 				// Add active indicator if not present
 				if (!activeSpan && labelSpan) {
@@ -124,7 +129,8 @@ export function getStaticPaths() {
 				}
 			} else {
 				button.classList.remove('text-white');
-				button.classList.add('text-gray-400', 'cursor-pointer');
+				button.classList.add('text-secondary', 'cursor-pointer');
+				button.removeAttribute('aria-current');
 
 				// Remove active indicator
 				if (activeSpan) {
@@ -149,10 +155,11 @@ export function getStaticPaths() {
 					'border-accent/20',
 				);
 				button.classList.remove(
-					'text-gray-400',
+					'text-secondary',
 					'hover:bg-white/5',
 					'hover:text-white',
 				);
+				button.setAttribute('aria-current', 'true');
 				if (dot) {
 					dot.classList.add('bg-accent');
 					dot.classList.remove('bg-white/10', 'group-hover:bg-white/30');
@@ -165,10 +172,11 @@ export function getStaticPaths() {
 					'border-accent/20',
 				);
 				button.classList.add(
-					'text-gray-400',
+					'text-secondary',
 					'hover:bg-white/5',
 					'hover:text-white',
 				);
+				button.removeAttribute('aria-current');
 				if (dot) {
 					dot.classList.remove('bg-accent');
 					dot.classList.add('bg-white/10', 'group-hover:bg-white/30');
@@ -233,8 +241,21 @@ export function getStaticPaths() {
 			});
 		});
 
-	// Initialize
-	window.addEventListener('scroll', handleScroll);
+	// Initialize — throttle scroll via rAF
+	let ticking = false;
+	window.addEventListener(
+		'scroll',
+		() => {
+			if (!ticking) {
+				ticking = true;
+				requestAnimationFrame(() => {
+					handleScroll();
+					ticking = false;
+				});
+			}
+		},
+		{ passive: true },
+	);
 	handleScroll();
 	updateActiveSection();
 </script>

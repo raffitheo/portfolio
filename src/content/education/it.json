@@ -5,7 +5,7 @@
     "degree": "Tecnico Superiore per lo Sviluppo e la Gestione di Soluzioni Informatiche Biomediche (TIB)",
     "location": "Trieste, Italia",
     "period": "2017-09 - 2019-07",
-    "description": "Diploma tecnico specializzato incentrato sull'informatica biomedica, lo sviluppo di software e i sistemi informatici sanitari. Formazione completa nello sviluppo full-stack, nella gestione di database e negli standard del software medico. Include uno stage di 6 mesi presso CodaQ S.r.l.s. per lo sviluppo di applicazioni sanitarie.",
+    "description": "Diploma tecnico biennale in informatica biomedica e sviluppo software. Ha coperto sviluppo full-stack, gestione di database e standard del software medico, con uno stage di 6 mesi presso CodaQ S.r.l.s. per lo sviluppo di applicazioni sanitarie.",
     "order": 1
   },
   {
@@ -14,7 +14,7 @@
     "degree": "Diploma di Maturità Tecnica in Chimica, Materiali e Biotecnologie",
     "location": "Trieste, Italia",
     "period": "2012-09 - 2017-06",
-    "description": "Istruzione tecnica superiore con focus su chimica, scienza dei materiali e biotecnologie. Solida base nella metodologia scientifica, nelle tecniche di laboratorio e nel pensiero analitico che integra la carriera di sviluppo software.",
+    "description": "Scuola superiore tecnica in chimica, scienza dei materiali e biotecnologie. Percorso orientato alla metodologia scientifica e al lavoro di laboratorio.",
     "order": 2
   }
 ]

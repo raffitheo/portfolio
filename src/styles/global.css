@@ -4,7 +4,8 @@
 	--color-background: #23252b;
 	--color-surface: #2b2e35;
 	--color-accent: #98a4b5;
-	--color-secondary: #5c636e;
+	--color-secondary: #a3acba;
+	--color-muted: #5c636e;
 	--color-text: #ffffff;
 
 	--font-family-sans: 'Inter', sans-serif;
@@ -12,6 +13,45 @@
 
 	--animate-float: float 6s ease-in-out infinite;
 	--animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@layer base {
+	:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 2px;
+		border-radius: 4px;
+	}
+	:focus:not(:focus-visible) {
+		outline: none;
+	}
+
+	.skip-link {
+		position: absolute;
+		top: 0.5rem;
+		left: 0.5rem;
+		z-index: 100;
+		padding: 0.625rem 1rem;
+		background: var(--color-accent);
+		color: var(--color-background);
+		font-weight: 600;
+		border-radius: 9999px;
+		transform: translateY(-200%);
+		transition: transform 200ms ease;
+	}
+	.skip-link:focus {
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 
 @keyframes float {
@@ -24,11 +64,14 @@
 	}
 }
 
+html {
+	overflow-x: clip;
+}
+
 body {
 	background-color: #23252b;
 	color: #ffffff;
 	font-family: 'Inter', sans-serif;
-	overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
