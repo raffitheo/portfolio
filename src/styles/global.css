@@ -64,11 +64,14 @@
 	}
 }
 
+html {
+	overflow-x: clip;
+}
+
 body {
 	background-color: #23252b;
 	color: #ffffff;
 	font-family: 'Inter', sans-serif;
-	overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
