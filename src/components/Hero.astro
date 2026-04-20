@@ -1,6 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
-import { ArrowDown, Download } from 'lucide-astro';
+import { ArrowDown, Download } from '@lucide/astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -8,7 +8,6 @@ const t = useTranslations(lang);
 
 const cvPath = `/files/Raffaele-Valenti-CV-${lang.toUpperCase()}.pdf`;
 
-// Get personal data from collection for current language
 const personalEntry = await getEntry('personal', lang);
 const personalData = personalEntry?.data[0] || {
 	name: '',

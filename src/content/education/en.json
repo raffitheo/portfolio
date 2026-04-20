@@ -5,7 +5,7 @@
     "degree": "Higher Technician for Development and Management of Biomedical IT Solutions (TIB)",
     "location": "Trieste, Italy",
     "period": "2017-09 - 2019-07",
-    "description": "Specialized technical diploma focused on biomedical informatics, software development, and healthcare IT systems. Comprehensive training in full-stack development, database management, and medical software standards. Included 6-month internship at CodaQ S.r.l.s. developing healthcare applications.",
+    "description": "Two-year technical diploma in biomedical informatics and software development. Covered full-stack development, database management, and medical software standards, with a 6-month internship at CodaQ S.r.l.s. building healthcare applications.",
     "order": 1
   },
   {
@@ -14,7 +14,7 @@
     "degree": "High School Diploma in Chemistry, Materials, and Biotechnology",
     "location": "Trieste, Italy",
     "period": "2012-09 - 2017-06",
-    "description": "Technical high school education with focus on chemistry, materials science, and biotechnology. Strong foundation in scientific methodology, laboratory techniques, and analytical thinking that complements software development career.",
+    "description": "Technical high school in chemistry, materials science, and biotechnology. Heavy on scientific methodology and lab work.",
     "order": 2
   }
 ]

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
 	PolarAngleAxis,
 	PolarGrid,
@@ -38,7 +38,7 @@ export default function SkillRadarChart({
 	}
 
 	return (
-		<div className="w-full h-full min-h-[300px] md:min-h-[350px]">
+		<div className="h-full min-h-[300px] w-full md:min-h-[350px]">
 			<ResponsiveContainer width="100%" height={350}>
 				<RadarChart cx="50%" cy="50%" outerRadius="70%" data={data}>
 					<PolarGrid stroke="#5c636e" strokeOpacity={0.2} />

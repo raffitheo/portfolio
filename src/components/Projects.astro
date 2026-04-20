@@ -1,12 +1,12 @@
 ---
 import { getEntry } from 'astro:content';
-import { Github, ExternalLink } from 'lucide-astro';
+import { ExternalLink } from '@lucide/astro';
+import Github from './icons/Github.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Get projects from content collection for current language
 const projectsEntry = await getEntry('projects', lang);
 const projects = projectsEntry?.data || [];
 const sortedProjects = [...projects].sort(

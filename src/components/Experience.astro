@@ -1,12 +1,11 @@
 ---
 import { getEntry } from 'astro:content';
-import { Briefcase, Calendar, MapPin } from 'lucide-astro';
+import { Briefcase, Calendar, MapPin } from '@lucide/astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Get experience data from collection for current language
 const experienceEntry = await getEntry('experience', lang);
 const experienceData = experienceEntry?.data || [];
 const sortedExperience = [...experienceData].sort(

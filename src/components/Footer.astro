@@ -1,6 +1,8 @@
 ---
 import { getEntry } from 'astro:content';
-import { Github, Linkedin, Mail, Globe } from 'lucide-astro';
+import { Mail, Globe } from '@lucide/astro';
+import Github from './icons/Github.astro';
+import Linkedin from './icons/Linkedin.astro';
 import logo from '@assets/raffitheo.png';
 import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
@@ -8,7 +10,6 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Icon mapping object
 const iconMap = {
 	Github,
 	Linkedin,
@@ -16,14 +17,12 @@ const iconMap = {
 	Globe,
 };
 
-// Get navigation items from collection for current language
 const navbarEntry = await getEntry('navbar', lang);
 const navbarItems = navbarEntry?.data || [];
 const sortedNavItems = [...navbarItems].sort(
 	(a, b) => (a.order || 0) - (b.order || 0),
 );
 
-// Get personal data from collection for current language
 const personalEntry = await getEntry('personal', lang);
 const personalData = personalEntry?.data[0] || {
 	name: '',
@@ -31,7 +30,6 @@ const personalData = personalEntry?.data[0] || {
 	email: '',
 };
 
-// Get social links from collection for current language
 const socialEntry = await getEntry('social', lang);
 const socialLinks = socialEntry?.data || [];
 const sortedSocialLinks = [...socialLinks].sort(

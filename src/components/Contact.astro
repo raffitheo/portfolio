@@ -1,18 +1,18 @@
 ---
 import { getEntry } from 'astro:content';
-import { Mail, MessageSquare, Send, Github, Linkedin } from 'lucide-astro';
+import { Mail, MessageSquare, Send } from '@lucide/astro';
+import Github from './icons/Github.astro';
+import Linkedin from './icons/Linkedin.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Icon mapping
 const socialIconMap = {
 	Github,
 	Linkedin,
 };
 
-// Get social links from collection for current language
 const socialEntry = await getEntry('social', lang);
 const socialLinks = socialEntry?.data || [];
 const sortedSocialLinks = [...socialLinks].sort(
@@ -22,7 +22,6 @@ const filteredSocials = sortedSocialLinks.filter(
 	(l) => l.name !== 'Email' && l.name !== 'Website',
 );
 
-// Get personal data from collection for current language
 const personalEntry = await getEntry('personal', lang);
 const personalData = personalEntry?.data[0] || {
 	name: '',

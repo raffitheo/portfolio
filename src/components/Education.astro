@@ -1,12 +1,11 @@
 ---
 import { getEntry } from 'astro:content';
-import { GraduationCap, Calendar, MapPin } from 'lucide-astro';
+import { GraduationCap, Calendar, MapPin } from '@lucide/astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Get education data from collection for current language
 const educationEntry = await getEntry('education', lang);
 const educationData = educationEntry?.data || [];
 const sortedEducation = [...educationData].sort(

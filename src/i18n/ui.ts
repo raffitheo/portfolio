@@ -17,7 +17,7 @@ export const ui = {
 		'hero.cv': 'Download CV',
 		'experience.title': 'Work Experience',
 		'experience.subtitle':
-			'A timeline of my professional career, roles, and contributions to the tech industry.',
+			"Roles I've held and what I actually worked on at each one.",
 		'projects.title': 'Featured Projects',
 		'projects.subtitle':
 			'A collection of some of my personal and professional projects.',
@@ -28,7 +28,7 @@ export const ui = {
 		'project.seeMore': 'See More',
 		'skills.title': 'Skills & Technologies',
 		'skills.subtitle':
-			'The tools and technologies I use to bring ideas to life.',
+			'The tools I reach for, and roughly how often I reach for them.',
 		'skills.radar.title': 'Core Competencies',
 		'skills.radar.subtitle': 'Visualization of my strongest technical areas.',
 		'skills.radar.focus': 'Current Focus',
@@ -38,16 +38,16 @@ export const ui = {
 		'education.degree': 'Degree',
 		'contact.title': 'Get In Touch',
 		'contact.subtitle':
-			'Whether you have a project in mind or a professional inquiry, feel free to reach out.',
+			'Got a project in mind or a professional inquiry? Drop me a line.',
 		'contact.email.title': 'Email Me',
 		'contact.email.send': 'Send Email',
 		'contact.socials.title': 'Connect on Socials',
 		'contact.socials.subtitle':
-			'Follow my latest open source contributions, professional updates, and network.',
+			'Open source work, professional updates, and where to find me online.',
 		'contact.relocation.based': 'Based in',
 		'contact.relocation.open': 'Open to Relocate or Remote Work',
 		'footer.description':
-			'Crafting robust frontend architectures and immersive 3D web experiences. Always learning, always building.',
+			'Frontend architecture and 3D web work. Currently building a game engine in Rust on the side.',
 		'footer.navigation.title': 'Navigation',
 		'footer.connect.title': 'Connect',
 		'footer.connect.opportunities': 'Open for opportunities.',
@@ -64,7 +64,7 @@ export const ui = {
 		'hero.cv': 'Scarica CV',
 		'experience.title': 'Esperienza Lavorativa',
 		'experience.subtitle':
-			"Un percorso della mia carriera professionale, ruoli e contributi nell'industria tecnologica.",
+			'I ruoli che ho ricoperto e su cosa ho lavorato davvero in ognuno.',
 		'projects.title': 'Progetti In Evidenza',
 		'projects.subtitle':
 			'Una raccolta di alcuni dei miei progetti personali e professionali.',
@@ -74,8 +74,7 @@ export const ui = {
 		'project.seeLess': 'Vedi Meno',
 		'project.seeMore': 'Vedi di Più',
 		'skills.title': 'Competenze e Tecnologie',
-		'skills.subtitle':
-			'Gli strumenti e le tecnologie che uso per dare vita alle idee.',
+		'skills.subtitle': 'Gli strumenti che uso e con quale frequenza li uso.',
 		'skills.radar.title': 'Competenze Core',
 		'skills.radar.subtitle':
 			'Visualizzazione delle mie aree tecniche più forti.',
@@ -91,11 +90,11 @@ export const ui = {
 		'contact.email.send': 'Invia Email',
 		'contact.socials.title': 'Social Media',
 		'contact.socials.subtitle':
-			'Segui i miei ultimi contributi open source e aggiornamenti professionali.',
+			'Contributi open source, aggiornamenti professionali e dove trovarmi.',
 		'contact.relocation.based': 'Residente a',
 		'contact.relocation.open': 'Aperto a Trasferimenti o Lavoro Remoto',
 		'footer.description':
-			'Sviluppo architetture frontend robuste ed esperienze web 3D immersive. Sempre in apprendimento, sempre in costruzione.',
+			'Architettura frontend e lavori web 3D. Nel tempo libero sto costruendo un game engine in Rust.',
 		'footer.navigation.title': 'Navigazione',
 		'footer.connect.title': 'Contatti',
 		'footer.connect.opportunities': 'Disponibile per nuove opportunità.',
@@ -112,7 +111,7 @@ export const ui = {
 		'hero.cv': 'Télécharger le CV',
 		'experience.title': 'Expérience Professionnelle',
 		'experience.subtitle':
-			"Un aperçu de mon parcours professionnel, de mes rôles et de mes contributions à l'industrie technologique.",
+			"Les postes que j'ai occupés et ce sur quoi j'ai vraiment travaillé.",
 		'projects.title': 'Projets Phares',
 		'projects.subtitle':
 			'Une collection de certains de mes projets personnels et professionnels.',
@@ -123,7 +122,7 @@ export const ui = {
 		'project.seeMore': 'Voir Plus',
 		'skills.title': 'Compétences et Technologies',
 		'skills.subtitle':
-			"Les outils et technologies que j'utilise pour donner vie aux idées.",
+			"Les outils que j'utilise et à quelle fréquence je les utilise.",
 		'skills.radar.title': 'Compétences de Base',
 		'skills.radar.subtitle': 'Visualisation de mes points forts techniques.',
 		'skills.radar.focus': 'Focus Actuel',
@@ -133,17 +132,17 @@ export const ui = {
 		'education.degree': 'Diplôme',
 		'contact.title': 'Contactez-moi',
 		'contact.subtitle':
-			"Que vous ayez un projet en tête ou une simple question professionnelle, n'hésitez pas à me contacter.",
-		'contact.email.title': 'Contactez-moi',
+			"Un projet en tête ou une question professionnelle ? N'hésitez pas.",
+		'contact.email.title': 'Envoyez-moi un email',
 		'contact.email.send': "Envoyer l'Email",
 		'contact.socials.title': 'Réseaux Sociaux',
 		'contact.socials.subtitle':
-			'Suivez mes dernières contributions open source et mes mises à jour professionnelles.',
+			'Contributions open source, mises à jour professionnelles et où me trouver.',
 		'contact.relocation.based': 'Basé à',
 		'contact.relocation.open':
 			'Ouvert à la Relocalisation ou au Travail à Distance',
 		'footer.description':
-			"Conception d'architectures frontend robustes et d'expériences web 3D immersives. Toujours en train d'apprendre, toujours en train de construire.",
+			'Architecture frontend et projets web 3D. En parallèle, je travaille sur un moteur de jeu en Rust.',
 		'footer.navigation.title': 'Navigation',
 		'footer.connect.title': 'Contacts',
 		'footer.connect.opportunities':
