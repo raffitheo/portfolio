@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "type": "module",
   "homepage": "https://raffitheo.github.io/portfolio/",
   "license": "MIT",
@@ -43,6 +43,7 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.7.2",
     "@eslint/js": "10.0.1",
     "@types/node": "^25.6.0",
     "@typescript-eslint/parser": "8.59.0",

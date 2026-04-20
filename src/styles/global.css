@@ -24,6 +24,23 @@
 	:focus:not(:focus-visible) {
 		outline: none;
 	}
+
+	.skip-link {
+		position: absolute;
+		top: 0.5rem;
+		left: 0.5rem;
+		z-index: 100;
+		padding: 0.625rem 1rem;
+		background: var(--color-accent);
+		color: var(--color-background);
+		font-weight: 600;
+		border-radius: 9999px;
+		transform: translateY(-200%);
+		transition: transform 200ms ease;
+	}
+	.skip-link:focus {
+		transform: translateY(0);
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
