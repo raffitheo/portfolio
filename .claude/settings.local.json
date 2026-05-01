@@ -3,7 +3,10 @@
     "allow": [
       "Bash(py *)",
       "Bash(pnpm build *)",
-      "Bash(pnpm add *)"
+      "Bash(pnpm add *)",
+      "Bash(npx playwright *)",
+      "Bash(pnpm test *)",
+      "Bash(pnpm list *)"
     ]
   }
 }
