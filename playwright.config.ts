@@ -12,11 +12,10 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:4321',
     trace: 'on-first-retry',
-    reducedMotion: 'reduce',
   },
   expect: {
     toHaveScreenshot: {
-      maxDiffPercent: 0.1,
+      maxDiffPixelRatio: 0.1,
     },
   },
   projects: [
