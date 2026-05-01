@@ -11,7 +11,7 @@
 
 ![CI/CD](https://vercelbadge.vercel.app/api/raffitheo/portfolio?style=for-the-badge)
 [![GitHub license](https://img.shields.io/github/license/raffitheo/portfolio?style=for-the-badge)](https://github.com/raffitheo/portfolio/blob/master/LICENSE)
-[![Node Version](https://img.shields.io/static/v1?label=Node&message=^24.13.0&color=026e00&style=for-the-badge)](https://nodejs.org)
+[![Node Version](https://img.shields.io/static/v1?label=Node&message=>=22.12.0&color=026e00&style=for-the-badge)](https://nodejs.org)
 [![pnpm Version](https://img.shields.io/static/v1?label=pnpm&message=^10.28.2&color=f69220&style=for-the-badge)](https://pnpm.io)
 
 ---
@@ -23,7 +23,7 @@ This portfolio is a modern, static-site-generated application designed for speed
 ### Key Features
 
 - 🌍 **Full I18n Support**: Multilingual support for English, Italian, and French, with automatic routing and SEO optimization.
-- ⚡ **Astro 5 Performance**: Blazing fast static site generation (SSG) with minimal client-side JavaScript.
+- ⚡ **Astro 6 Performance**: Blazing fast static site generation (SSG) with minimal client-side JavaScript.
 - 🎨 **Tailwind CSS 4**: Cutting-edge styling using the latest Tailwind features and `@tailwindcss/vite` integration.
 - 📊 **Interactive Data**: Custom React components like the Skill Radar Chart for technical proficiency visualization.
 - 📱 **Responsive Design**: Fully optimized for all device sizes, from mobile to ultra-wide displays.
@@ -33,14 +33,11 @@ This portfolio is a modern, static-site-generated application designed for speed
 
 ## ✨ Recent Updates
 
-- **Unified Visual Language**: Standardized all cards (Experience, Projects, Skills, Contact) with a consistent hover system, padding, and glassmorphic effects.
-- **Smart "See More" Toggles**: 
-  - **Descriptions**: Long project descriptions are now smartly clamped with an expandable toggle.
-  - **Tags**: Project tech stacks show the primary tools by default with a counter (+N) to reveal the full list.
-- **Redesigned Interactions**: 
-  - Buttons across the site (Projects, Hero, Contact) now follow a shared set of primary and outline styles.
-  - Social links in the Contact section have been upgraded from simple icons to full-width, styled buttons.
-- **Improved Content Logic**: Added conditional rendering to project cards to ensure a clean UI when links are not available.
+- **Playwright Testing Suite**: End-to-end tests for content, navigation, and visual regression, with per-platform snapshots.
+- **Dependency Upgrade**: Bumped to Astro 6, TypeScript 6, React 19, and Tailwind CSS 4.
+- **Accessibility Improvements**: Semantic labeling and focus management across interactive components.
+- **Image Optimization**: Migrated project assets to `astro:assets` for automatic format conversion and lazy loading.
+- **Noscript Fallback**: Skills section now degrades gracefully when JavaScript is disabled.
 
 ---
 
@@ -48,10 +45,11 @@ This portfolio is a modern, static-site-generated application designed for speed
 
 | Category | Technology |
 |----------|------------|
-| **Framework** | [Astro 5](https://astro.build/) |
+| **Framework** | [Astro 6](https://astro.build/) |
 | **UI Library** | [React 19](https://react.dev/) |
 | **Styling** | [Tailwind CSS 4](https://tailwindcss.com/) |
-| **Language** | [TypeScript](https://www.typescriptlang.org/) |
+| **Language** | [TypeScript 6](https://www.typescriptlang.org/) |
+| **Testing** | [Playwright](https://playwright.dev/) |
 | **Icons** | [Lucide](https://lucide.dev/) |
 | **Deployment** | [Vercel](https://vercel.com/) |
 | **Package Manager** | [pnpm](https://pnpm.io/) |
@@ -61,7 +59,7 @@ This portfolio is a modern, static-site-generated application designed for speed
 ## 🏃 Getting Started
 
 ### Prerequisites
-- Node.js ^24.13.0
+- Node.js >=22.12.0
 - pnpm ^10.28.2
 
 ### Installation
@@ -81,6 +79,13 @@ pnpm build
 ```
 Builds the static site to the `dist/` directory.
 
+### Testing
+```bash
+pnpm test                      # run all Playwright tests
+pnpm test:ui                   # open Playwright interactive UI
+pnpm test:update-snapshots     # regenerate visual regression snapshots
+```
+
 ---
 
 ## 📁 Project Structure
@@ -90,6 +95,7 @@ Builds the static site to the `dist/` directory.
 - `src/i18n/`: Internationalization logic and translation dictionaries.
 - `src/layouts/`: Base HTML templates.
 - `src/styles/`: Global CSS and Tailwind configuration.
+- `tests/`: Playwright test suites (`content`, `navigation`, `visual`) and snapshots.
 
 ---
 
