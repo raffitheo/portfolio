@@ -2,6 +2,8 @@
 import '@styles/global.css';
 import { getLangFromUrl, getLocalizedPath } from '../i18n/utils';
 import { languages } from '../i18n/ui';
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -74,6 +76,8 @@ const ogImage = new URL('/apple-touch-icon.png', SITE_URL).toString();
 		<meta name="twitter:title" content={TITLE} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={ogImage} />
+		<Analytics />
+		<SpeedInsights />
 	</head>
 	<body>
 		<slot />
