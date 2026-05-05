@@ -16,7 +16,8 @@ const descriptions = {
 	fr: 'Lead Full-Stack Developer avec 5+ ans sur des systèmes enterprise, consulting et produit. React et TypeScript de bout en bout, infrastructure Docker/Kubernetes, et un moteur de jeu en Rust en parallèle.',
 } as const;
 
-const description = descriptions[lang as keyof typeof descriptions] ?? descriptions.en;
+const description =
+	descriptions[lang as keyof typeof descriptions] ?? descriptions.en;
 const canonical = new URL(getLocalizedPath('/', lang), SITE_URL).toString();
 const ogImage = new URL('/apple-touch-icon.png', SITE_URL).toString();
 ---
@@ -65,7 +66,10 @@ const ogImage = new URL('/apple-touch-icon.png', SITE_URL).toString();
 
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Raffaele Valenti" />
-		<meta property="og:locale" content={lang === 'it' ? 'it_IT' : lang === 'fr' ? 'fr_FR' : 'en_US'} />
+		<meta
+			property="og:locale"
+			content={lang === 'it' ? 'it_IT' : lang === 'fr' ? 'fr_FR' : 'en_US'}
+		/>
 		<meta property="og:url" content={canonical} />
 		<meta property="og:title" content={TITLE} />
 		<meta property="og:description" content={description} />

@@ -40,7 +40,9 @@ export default function SkillRadarChart({
 	}, []);
 
 	if (!mounted) {
-		return <div className="h-72 w-full md:h-80" aria-label={label} role="img" />;
+		return (
+			<div className="h-72 w-full md:h-80" aria-label={label} role="img" />
+		);
 	}
 
 	return (
