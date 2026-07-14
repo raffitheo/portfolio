@@ -4,7 +4,6 @@
     "institution": "Fondazione Istituto Tecnico Superiore \"Alessandro Volta\"",
     "degree": "Tecnico Superiore per lo Sviluppo e la Gestione di Soluzioni Informatiche Biomediche (TIB)",
     "location": "Trieste, Italia",
-    "period": "2017-09 - 2019-07",
     "description": "Diploma tecnico biennale in informatica biomedica e sviluppo software. Ha coperto sviluppo full-stack, gestione di database e standard del software medico, con uno stage di 6 mesi presso CodaQ S.r.l.s. per lo sviluppo di applicazioni sanitarie.",
     "order": 1
   },
@@ -13,7 +12,6 @@
     "institution": "Istituto Tecnico Statale \"Grazia Deledda - Max Fabiani\"",
     "degree": "Diploma di Maturità Tecnica in Chimica, Materiali e Biotecnologie",
     "location": "Trieste, Italia",
-    "period": "2012-09 - 2017-06",
     "description": "Scuola superiore tecnica in chimica, scienza dei materiali e biotecnologie. Percorso orientato alla metodologia scientifica e al lavoro di laboratorio.",
     "order": 2
   }
