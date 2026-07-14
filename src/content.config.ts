@@ -13,7 +13,6 @@ const educationCollection = defineCollection({
 			institution: z.string(),
 			degree: z.string(),
 			location: z.string(),
-			period: z.string(),
 			description: z.string().optional(),
 			order: z.number(),
 		}),
