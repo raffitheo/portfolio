@@ -4,7 +4,13 @@
     "title": "Portfolio Personnel v2",
     "description": "Refonte complète du portfolio personnel. Le contenu est géré via les collections de contenu d'Astro (pilotées par JSON) pour la génération statique et la localisation.",
     "image": "../../assets/projects/portfolio.png",
-    "tags": ["Astro", "TypeScript", "JavaScript", "TailwindCSS", "Content Collections"],
+    "tags": [
+      "Astro",
+      "TypeScript",
+      "JavaScript",
+      "TailwindCSS",
+      "Content Collections"
+    ],
     "github": "https://github.com/raffitheo/portfolio",
     "order": 1
   },
