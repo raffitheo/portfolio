@@ -4,7 +4,7 @@
     "title": "Personal Portfolio v2",
     "description": "Full redesign of personal portfolio. Content managed through Astro content collections (JSON-driven) for static generation and easy localization.",
     "image": "../../assets/projects/portfolio.png",
-    "tags": ["Astro", "TypeScript", "TailwindCSS", "Content Collections"],
+    "tags": ["Astro", "TypeScript", "JavaScript", "TailwindCSS", "Content Collections"],
     "github": "https://github.com/raffitheo/portfolio",
     "order": 1
   },
@@ -16,6 +16,7 @@
     "tags": [
       "Next.js",
       "TypeScript",
+      "JavaScript",
       "Supabase",
       "Sass",
       "shadcn/ui",
